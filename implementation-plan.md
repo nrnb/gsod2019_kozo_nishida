@@ -1,6 +1,6 @@
 # Rewriting [Cytoscape tutorials](http://tutorials.cytoscape.org) with Jupyter Notebook and R Markdown
 ## Rewriting [Getting Started](https://github.com/cytoscape/cytoscape-tutorials/wiki#getting-started)
-- Skip ["Tour of Cytoscape"](https://cytoscape.github.io/cytoscape-tutorials/protocols/tour-of-cytoscape/#/) 
+- Skip ["Tour of Cytoscape"](https://cytoscape.github.io/cytoscape-tutorials/protocols/tour-of-cytoscape/#/) (intended for CyBrowser)
 - [ ] Rewriting ["Basic Data Visualization"](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/)
 - [ ] Rewriting ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/)
 
