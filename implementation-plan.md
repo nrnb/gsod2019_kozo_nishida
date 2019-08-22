@@ -48,4 +48,4 @@
 # Updating tutorials.cytoscape.org more like gallery
 - [ ] Adding notebook links to the red ellipse space
 
-  ![](https://github.com/kozo2/GoogleSeasonOfDocs/blob/patch-1/Space_to_insert_notebook_links.png)
+  ![](./Space_to_insert_notebook_links.png)
