@@ -56,7 +56,7 @@
 - [Cytoscape Rmd Notebooks](https://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/)
 
 ## Added plan
-- [ ] Creating a feature comparison table implemented in py2cytoscape and RCy3
+- [ ] Creating a comparison table of functions implemented in py2cytoscape and RCy3
 
 # Automation of execution testing and HTML deployment for every notebook update
 - [ ] Writing .travis.yml for Jupyter Notebook and R Markdown
