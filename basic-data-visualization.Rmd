@@ -3,7 +3,7 @@ title: "Basic Data Visualization"
 author: "by Kozo Nishida"
 date: "`r Sys.Date()`"
 output:
-  html_document:
+  BiocStyle::html_document:
     toc: true
     toc_depth: 1
     df_print: paged
@@ -13,16 +13,6 @@ knitr::opts_chunk$set(
   eval=FALSE
 )
 ```
-
-# Basic Data Visualization
-
-**Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.**
-
-This tutorial presents a scenario of how expression and network data can be combined to tell a biological story and includes these concepts:
-
- - Visualizing networks using expression data.
- - Filtering networks based on expression data.
- - Assessing expression data in the context of a biological network.
 
 # Installation
 ```{r, eval = FALSE}
@@ -35,15 +25,25 @@ if(!"RCy3" %in% installed.packages())
 library(RCy3)
 ```
 
-#### Prerequisites
+## Prerequisites
 In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions on screen.
 
-#### Getting started
+## Getting started
 First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
 ```{r}
     cytoscapePing()
     cytoscapeVersionInfo()
 ```
+
+# Basic Data Visualization
+
+**Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.**
+
+This tutorial presents a scenario of how expression and network data can be combined to tell a biological story and includes these concepts:
+
+ - Visualizing networks using expression data.
+ - Filtering networks based on expression data.
+ - Assessing expression data in the context of a biological network.
 
 # Loading Network
 You can download the [demo network session file](https://nrnb.org/data/BasicDataVizDemo.cys) to your current working directory by running...
