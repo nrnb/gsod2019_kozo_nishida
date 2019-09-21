@@ -76,6 +76,8 @@ selectNodes(c("YDL194W", "YLR345W"), by.col = "name")
 
 - Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).
 
+![](./images/basic-data-vizualization/SelectNodes.PNG)
+
 We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:
 
 - The **gal80Rexp** expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red.
@@ -95,6 +97,8 @@ setNodeColorMapping('gal80Rexp', c(gal80Rexp.min, gal80Rexp.center, gal80Rexp.ma
 
 - This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.
 
+![](./images/basic-data-vizualization/SetNodeFillColor.PNG)
+
 ### Set Default Node Color
 
 Some nodes in the network don't have any data, and for those nodes, the default color applies. In our case, the default color is blue, which falls within the spectrum of our blue-red gradient. This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.
@@ -105,7 +109,21 @@ Some nodes in the network don't have any data, and for those nodes, the default 
 setNodeColorDefault('#666666')
 ```
 
+![](./images/basic-data-vizualization/SetDefaultNodeColor.PNG)
+
 ### Set Node Border Width
+
+You can set the Border Width by
+```{r}
+gal80Rsig.score.table <- getTableColumns('node','gal80Rsig')
+gal80Rsig.min <- min(gal80Rsig.score.table, na.rm = T)
+gal80Rsig.max <- max(gal80Rsig.score.table, na.rm = T)
+
+setNodeBorderWidthMapping('gal80Rsig', c(gal80Rsig.min, gal80Rsig.max), c(10,30))
+```
+
+This defines the node border width over the range of `gal80Rsig` column p-values like
+![](./images/basic-data-vizualization/SetNodeBorderWidth.PNG)
 
 ### Creating a Legend
 
