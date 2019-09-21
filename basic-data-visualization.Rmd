@@ -97,6 +97,14 @@ setNodeColorMapping('gal80Rexp', c(gal80Rexp.min, gal80Rexp.center, gal80Rexp.ma
 
 ### Set Default Node Color
 
+Some nodes in the network don't have any data, and for those nodes, the default color applies. In our case, the default color is blue, which falls within the spectrum of our blue-red gradient. This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.
+
+- Still in the **Style** tab, And you can set default node color to dark gray by
+
+```{r}
+setNodeColorDefault('#666666')
+```
+
 ### Set Node Border Width
 
 ### Creating a Legend
