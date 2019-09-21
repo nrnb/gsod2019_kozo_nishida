@@ -48,7 +48,7 @@ This tutorial presents a scenario of how expression and network data can be comb
 # Loading Network
 You can download the [demo network session file](https://nrnb.org/data/BasicDataVizDemo.cys) to your current working directory by running...
 ```{r}
-download.file("https://nrnb.org/data/BasicDataVizDemo.cys", "./BasicDataVizDemo.cys", 'auto')
+download.file("https://nrnb.org/data/BasicDataVizDemo.cys", "./BasicDataVizDemo.cys", 'curl')
 ```
 
 Now open the demo network using...
