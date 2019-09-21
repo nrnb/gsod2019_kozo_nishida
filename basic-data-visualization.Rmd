@@ -83,6 +83,18 @@ We can now use the data to manipulate the visual properties of the network by ma
 
 ### Set Node Fill Color
 
+- Click on the Style tab in the Control Panel. And you can set node fill color by
+
+```{r}
+gal80Rexp.score.table <- getTableColumns('node','gal80Rexp')
+gal80Rexp.min <- min(gal80Rexp.score.table, na.rm = T)
+gal80Rexp.max <- max(gal80Rexp.score.table, na.rm = T)
+gal80Rexp.center <- gal80Rexp.min + (gal80Rexp.max - gal80Rexp.min)/2
+setNodeColorMapping('gal80Rexp', c(gal80Rexp.min, gal80Rexp.center, gal80Rexp.max), c('#0000FF', '#FFFFFF', '#FF0000'))
+```
+
+- This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.
+
 ### Set Default Node Color
 
 ### Set Node Border Width
