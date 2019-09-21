@@ -56,3 +56,20 @@ Now open the demo network using...
 openSession(file.location = "./BasicDataVizDemo.cys")
 ```
 
+# Visualizing Expression Data on Networks
+
+# Set Node Fill Color
+
+# Set Default Node Color
+
+# Set Node Border Width
+
+# Creating a Legend
+
+# Layouts
+
+# Select Nodes
+
+# Expand Selection and Create New Network
+
+# Saving Results
