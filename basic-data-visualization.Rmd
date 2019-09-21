@@ -1,11 +1,11 @@
 ---
 title: "Basic Data Visualization"
-author: "by Kozo Nishida"
+author: "Kozo Nishida and Alex Pico"
 date: "`r Sys.Date()`"
 output:
   BiocStyle::html_document:
     toc: true
-    toc_depth: 1
+    toc_depth: 3
     df_print: paged
 ---
 ```{r, echo = FALSE}
@@ -45,31 +45,54 @@ This tutorial presents a scenario of how expression and network data can be comb
  - Filtering networks based on expression data.
  - Assessing expression data in the context of a biological network.
 
-# Loading Network
+## Loading Network
 You can download the [demo network session file](https://nrnb.org/data/BasicDataVizDemo.cys) to your current working directory by running...
+
 ```{r}
 download.file("https://nrnb.org/data/BasicDataVizDemo.cys", "./BasicDataVizDemo.cys", 'curl')
 ```
 
 Now open the demo network using...
+
 ```{r}
 openSession(file.location = "./BasicDataVizDemo.cys")
 ```
 
-# Visualizing Expression Data on Networks
+## Visualizing Expression Data on Networks
 
-# Set Node Fill Color
+Probably the most common use of expression data in Cytoscape is to set the **visual properties** of the nodes (color, shape, border) in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will show an example of doing this.
 
-# Set Default Node Color
+The data used in this example is from yeast, and represents an experiment of perturbations of the genes **Gal1**, **Gal4**, and **Gal80**, which are all yeast transcription factors.
 
-# Set Node Border Width
+For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the Node Table:
 
-# Creating a Legend
+![](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/Galbrowse3.png)
 
-# Layouts
+- You can select nodes in the network by 
 
-# Select Nodes
+```{r}
+selectNodes(c("YDL194W", "YLR345W"), by.col = "name")
+```
 
-# Expand Selection and Create New Network
+- Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).
 
-# Saving Results
+We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:
+
+- The **gal80Rexp** expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red.
+- Significance for expression values will be mapped to Node Border Width, so nodes with significant changes will appear with a thicker border.
+
+### Set Node Fill Color
+
+### Set Default Node Color
+
+### Set Node Border Width
+
+### Creating a Legend
+
+## Layouts
+
+### Select Nodes
+
+### Expand Selection and Create New Network
+
+## Saving Results
