@@ -218,3 +218,36 @@ Finally, we can now export this network as a publication-quality image....
 
 ## Saving Results
 
+Cytoscape provides a number of ways to save results and visualizations:
+
+- As a session:
+
+```{r}
+saveSession('./basic-data-visualization.cys')
+```
+
+- As an image:
+
+```{r}
+exportImage('./basic-data-visualization', 'PDF')
+exportImage('./basic-data-visualization', 'PNG')
+exportImage('./basic-data-visualization', 'JPEG')
+exportImage('./basic-data-visualization', 'SVG')
+exportImage('./basic-data-visualization', 'PS')
+```
+
+- To a public repository:
+
+```
+exportNetworkToNDEx("user", "pass", TRUE)
+```
+
+- As a graph format file (Formats: "CX JSON", "Cytoscape.js JSON", "GraphML", "XGMML", "SIF",...):
+
+```{r}
+exportNetwork('./basic-data-visualization', 'CX')
+exportNetwork('./basic-data-visualization', 'cyjs')
+exportNetwork('./basic-data-visualization', 'graphML')
+exportNetwork('./basic-data-visualization', 'xGMML')
+exportNetwork('./basic-data-visualization', 'SIF')
+```
