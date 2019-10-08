@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 output:
   BiocStyle::html_document:
     toc: true
-    toc_depth: 3
+    toc_depth: 4
     df_print: paged
 ---
 ```{r, echo = FALSE}
@@ -200,5 +200,21 @@ exportImage("./images/basic-data-vizualization/first-neighbors.png")
 
 ![](./images/basic-data-vizualization/first-neighbors.png)
 
+Digging into the biology of this network, it turns out that GAL4 is repressed by GAL80. Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are pale blue with thin borders. These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes. GAL4 interacts with GAL80, which shows a significant level of repression: it is medium blue with a thicker border.
+
+Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as red rectangles. GAL11 is a general transcription co-factor with many interactions.
+
+Putting all of this together, we see that the ***transcriptional activation activity of Gal4 is repressed by Gal80***. So, repression of Gal80 increases the transcriptional activation activity of Gal4. Even though the expression of Gal4 itself did not change much, ***the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed***. This explains why there is so much up-regulation in the vicinity of Gal4.
+
+#### Summary
+
+In summary, we have:
+
+- Explored a yeast interactome from a transcription factor knockout experiment
+- Created a visual style using expression value as node color and with border width mapped to significance
+- Selected high expressing genes and their neighbors and created a new network
+
+Finally, we can now export this network as a publication-quality image....
 
 ## Saving Results
+
