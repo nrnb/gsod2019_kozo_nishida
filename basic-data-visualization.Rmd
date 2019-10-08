@@ -168,6 +168,22 @@ Cytoscape supports many different layout algorithms, described in detail in the 
 
 ## Select Nodes
 
+Cytoscape allows you to easily filter and select nodes and edges based on data attributes. Next, we will select a subset of nodes with high expression in the gal80 knockout:
+
+- Let's create column filter for **Node: gal80Rexp** by 
+
+```{r}
+createColumnFilter('myFilter', 'gal80Rexp', 2.00, "GREATER_THAN")
+```
+
+You should now see only a few nodes in the network selected (highlighted yellow).
+
+```{r}
+exportImage("./images/basic-data-vizualization/column-filter.png")
+```
+
+![](./images/basic-data-vizualization/column-filter.png)
+
 ### Expand Selection and Create New Network
 
 ## Saving Results
