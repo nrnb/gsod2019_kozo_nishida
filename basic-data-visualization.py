@@ -24,6 +24,7 @@ cytoscape=cyrest.cyclient()
 f = io.StringIO()
 with redirect_stdout(f):
     cytoscape.status()
+    cytoscape.version()
 s = f.getvalue()
 doc.add_text(s)
 doc.show()
@@ -43,19 +44,25 @@ This tutorial presents a scenario of how expression and network data can be comb
 You can download the [demo network session file](https://nrnb.org/data/BasicDataVizDemo.cys) to your current working directory by running...
 """
 
-print('foo1')
+import requests
+r = requests.get("https://nrnb.org/data/BasicDataVizDemo.cys")
+open('BasicDataVizDemo.cys', 'wb').write(r.content)
 
 """
 Now open the demo network using...
+(For now this function only accepts FULL PATH...)
 """
 
-print('foo2')
+cytoscape.session.open(session_file='/Users/knishida/gsod2019_kozo_nishida/BasicDataVizDemo.cys')
 
 """
 Now you should see a network like this.
+(For now these functions only accepts FULL PATH...)
 """
 
-print('foo3')
+cytoscape.view.export(options='PNG', outputFile='/Users/knishida/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png')
+doc.add_image('/Users/knishida/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png')
+doc.show()
 
 """
 ## Visualizing Expression Data on Networks
