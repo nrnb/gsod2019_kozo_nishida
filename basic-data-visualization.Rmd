@@ -84,7 +84,7 @@ selectNodes(c("YDL194W", "YLR345W"), by.col = "name")
 
 - Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).
 
-![](./images/basic-data-vizualization/SelectNodes.PNG)
+![](./images/basic-data-vizualization/SelectNodes.png)
 
 We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:
 
@@ -105,7 +105,7 @@ setNodeColorMapping('gal80Rexp', c(gal80Rexp.min, gal80Rexp.center, gal80Rexp.ma
 
 - This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.
 
-![](./images/basic-data-vizualization/SetNodeFillColor.PNG)
+![](./images/basic-data-vizualization/SetNodeFillColor.png)
 
 ### Set Default Node Color
 
@@ -117,7 +117,7 @@ Some nodes in the network don't have any data, and for those nodes, the default 
 setNodeColorDefault('#666666')
 ```
 
-![](./images/basic-data-vizualization/SetDefaultNodeColor.PNG)
+![](./images/basic-data-vizualization/SetDefaultNodeColor.png)
 
 ### Set Node Border Width
 
@@ -131,7 +131,7 @@ setNodeBorderWidthMapping('gal80Rsig', c(gal80Rsig.min, gal80Rsig.max), c(10,30)
 ```
 
 This defines the node border width over the range of `gal80Rsig` column p-values like
-![](./images/basic-data-vizualization/SetNodeBorderWidth.PNG)
+![](./images/basic-data-vizualization/SetNodeBorderWidth.png)
 
 ### Creating a Legend
 
