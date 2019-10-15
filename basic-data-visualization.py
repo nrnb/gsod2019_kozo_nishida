@@ -20,7 +20,8 @@ import io
 from contextlib import redirect_stdout
 
 from py2cytoscape import cyrest
-cytoscape=cyrest.cyclient()
+HOST = "172.21.64.1"
+cytoscape=cyrest.cyclient(host=HOST)
 f = io.StringIO()
 with redirect_stdout(f):
     cytoscape.status()
@@ -53,15 +54,18 @@ Now open the demo network using...
 (For now this function only accepts FULL PATH...)
 """
 
-cytoscape.session.open(session_file='/Users/knishida/gsod2019_kozo_nishida/BasicDataVizDemo.cys')
+#cytoscape.session.open(session_file='/Users/knishida/gsod2019_kozo_nishida/BasicDataVizDemo.cys')
+cytoscape.session.open(session_file="C:/Users/a/Documents/gsod2019_kozo_nishida/BasicDataVizDemo.cys")
 
 """
 Now you should see a network like this.
 (For now these functions only accepts FULL PATH...)
 """
 
-cytoscape.view.export(options='PNG', outputFile='/Users/knishida/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png')
-doc.add_image('/Users/knishida/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png')
+#cytoscape.view.export(options='PNG', outputFile='/Users/knishida/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png')
+cytoscape.view.export(options='PNG', outputFile="C:/Users/a/Documents/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png")
+#doc.add_image('/Users/knishida/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png')
+doc.add_image("C:/Users/a/Documents/gsod2019_kozo_nishida/html_documents/py/basic-data-visualization/BasicDataVizDemo.png")
 doc.show()
 
 """
@@ -74,11 +78,7 @@ The data used in this example is from yeast, and represents an experiment of per
 For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the Node Table:
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/Galbrowse3.png)
-"""
 
-print('foo4')
-
-"""
 - You can select nodes in the network by 
 """
 
