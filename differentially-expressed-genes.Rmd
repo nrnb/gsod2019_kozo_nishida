@@ -1,0 +1,45 @@
+---
+title: "Differentially Expressed Genes Network Analysis"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+## Prerequisites
+In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions on screen.
+
+## Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# Differentially Expressed Genes Network Analysis
+
+This protocol describes a network analysis workflow in Cytoscape for a set of differentially expressed genes. Points covered:
+
+- Retrieving relevant networks from public databases
+- Network functional enrichment analysis
+- Integration and visualization of experimental data
+- Exporting network visualizations
