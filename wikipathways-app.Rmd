@@ -50,6 +50,16 @@ This tutorial includes a basic workflow for visualizing experimental data on pat
 installApp('WikiPathways')
 ```
 
+- Install the rWikiPathways package via
+
+```{r}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("rWikiPathways")
+library(rWikiPathways)
+```
+
 - Import the [experimental data](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv) via
 
 ```{r}
@@ -57,3 +67,31 @@ data <- read.csv("https://cytoscape.github.io/cytoscape-tutorials/protocols/data
 ```
 
 The data has been modified from [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads), and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).
+
+## Importing Pathways
+
+You can search for pathways based on a keyword *Statin* via
+
+```{r}
+statin.pathways <- findPathwaysByText('Statin')
+```
+
+We have a list of pathways that mention *Statin*.
+The results include lots of information, so let’s select human one and get a unique list of just the WPIDs.
+
+```{r}
+human.statin.filter <- lapply(statin.pathways, function(x) {x$species == "Homo sapiens" && x$name == "Statin Pathway"})
+human.statin.pathways <- statin.pathways[unlist(human.statin.filter)]
+human.statin.wpids <- unique(unlist(lapply(human.statin.pathways, function(x) x$id)))
+```
+
+Let’s import the first one of these into Cytoscape!
+
+```{r}
+commandsRun(paste0('wikipathways import-as-pathway id=',human.statin.wpids[1]))
+```
+
+The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:
+
+
+
