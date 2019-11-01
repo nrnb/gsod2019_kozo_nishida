@@ -110,3 +110,20 @@ loadTableData(data, data.key.column="Gene.ID", table.key.column = "Ensembl")
 
 - Once import is complete, look for the newly imported data columns in the *Node Table* to confirm that it worked.
 
+## Mapping Data to Visual Properties
+
+We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as *Node Fill Color*.
+
+```{r}
+log2fold.score.table <- getTableColumns('node', colnames(data)[2])
+log2fold.min <- min(log2fold.score.table, na.rm = T)
+log2fold.max <- max(log2fold.score.table, na.rm = T)
+if (abs(log2fold.min) < log2fold.max) {
+  setNodeColorMapping(colnames(data)[2], c(-log2fold.max, 0, log2fold.max), c('#0000FF', '#FFFFFF', '#FF0000'), style.name = "WikiPathways")
+} else {
+  setNodeColorMapping(colnames(data)[2], c(log2fold.min, 0, -log2fold.min), c('#0000FF', '#FFFFFF', '#FF0000'), style.name = "WikiPathways")
+}
+```
+
+This will create a gradient from blue (negative fold change) to red (positive fold change).
+(And we assume that the minimum fold change is negative.)
