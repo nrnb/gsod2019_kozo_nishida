@@ -1,0 +1,43 @@
+---
+title: "WikiPathways App"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+## Prerequisites
+In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions on screen.
+
+## Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# WikiPathways App
+
+[WikiPathways](https://www.wikipathways.org/) is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the [App Store](http://apps.cytoscape.org/apps/wikipathways).
+
+
+This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.
