@@ -127,3 +127,21 @@ if (abs(log2fold.min) < log2fold.max) {
 
 This will create a gradient from blue (negative fold change) to red (positive fold change).
 (And we assume that the minimum fold change is negative.)
+
+## Importing Pathways as Networks
+In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.
+
+Again, select a human pathway that mentions *pluripotency*. 
+
+```{r}
+pluripotency.pathways <- findPathwaysByText('pluripotency')
+human.pluripotency.filter <- lapply(pluripotency.pathways, function(x) {x$species == "Homo sapiens" && x$name == "Wnt Signaling Pathway and Pluripotency"})
+human.pluripotency.pathways <- pluripotency.pathways[unlist(human.pluripotency.filter)]
+human.pluripotency.wpids <- unique(unlist(lapply(human.pluripotency.pathways, function(x) x$id)))
+```
+
+In this time, Let’s import the pathway into Cytoscape *as Network*.
+
+```{r}
+commandsRun(paste0('wikipathways import-as-network id=', human.pluripotency.wpids[1]))
+```
