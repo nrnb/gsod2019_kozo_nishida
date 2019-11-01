@@ -145,3 +145,29 @@ In this time, Let’s import the pathway into Cytoscape *as Network*.
 ```{r}
 commandsRun(paste0('wikipathways import-as-network id=', human.pluripotency.wpids[1]))
 ```
+
+## Exporting Networks
+
+Cytoscape provides a number of ways to export results and visualizations:
+
+- As an image:
+
+```{r}
+exportImage('./wikipathways-app', 'PDF')
+exportImage('./wikipathways-app', 'PNG')
+exportImage('./wikipathways-app', 'JPEG')
+exportImage('./wikipathways-app', 'SVG')
+exportImage('./wikipathways-app', 'PS')
+```
+
+- To a public repository:
+
+```
+exportNetworkToNDEx("user", "pass", TRUE)
+```
+
+- As a Cytoscape JSON file:
+
+```{r}
+exportNetwork('./wikipathways-app', 'cyjs')
+```
