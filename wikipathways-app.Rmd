@@ -93,5 +93,20 @@ commandsRun(paste0('wikipathways import-as-pathway id=',human.statin.wpids[1]))
 
 The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:
 
+## Pathway Node Identifiers
 
+Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the *XrefId* column in the *Node Table*. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.
+
+## Data Import
+
+The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:
+
+```{r}
+loadTableData(data, data.key.column="Gene.ID", table.key.column = "Ensembl")
+```
+
+*data.key.column* option is the name of *Key Column* in the data.
+*table.key.column* option is the name of *Key Column* in the network (node) table.
+
+- Once import is complete, look for the newly imported data columns in the *Node Table* to confirm that it worked.
 
