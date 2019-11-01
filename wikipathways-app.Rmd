@@ -24,33 +24,38 @@ if(!"RCy3" %in% installed.packages())
 
 library(RCy3)
 ```
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/cytoscape/cytoscape-automation/master/for-scripters/R/notebooks/Cancer-networks-and-data.Rmd).*
 
-## Prerequisites
-In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions on screen.
-
-## Getting started
-First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
-```{r}
-    cytoscapePing()
-    cytoscapeVersionInfo()
-```
-
-# WikiPathways App
+<hr />
 
 [WikiPathways](https://www.wikipathways.org/) is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the [App Store](http://apps.cytoscape.org/apps/wikipathways).
 
 
 This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.
 
-## Setup
+<hr />
 
-- Install the WikiPathways app via
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+# Prerequisites
+In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions.
+
+You will also need the WikiPathways app for Cytoscape:
 
 ```{r}
 installApp('WikiPathways')
 ```
 
-- Install the rWikiPathways package via
+Install the rWikiPathways package via:
 
 ```{r}
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -60,15 +65,15 @@ BiocManager::install("rWikiPathways")
 library(rWikiPathways)
 ```
 
-- Import the [experimental data](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv) via
 
+# Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
 ```{r}
-data <- read.csv("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv")
+    cytoscapePing()
+    cytoscapeVersionInfo()
 ```
 
-The data has been modified from [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads), and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).
-
-## Importing Pathways
+# Importing Pathways
 
 You can search for pathways based on a keyword *Statin* via
 
@@ -93,11 +98,17 @@ commandsRun(paste0('wikipathways import-as-pathway id=',human.statin.wpids[1]))
 
 The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:
 
-## Pathway Node Identifiers
+# Importing Expression Data
 
-Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the *XrefId* column in the *Node Table*. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column.
+Import the [experimental data](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv) via
 
-## Data Import
+```{r}
+data <- read.csv("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv")
+```
+
+The data has been modified from [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads), and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).
+
+Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the *XrefId* column in the *Node Table*. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column called *Ensembl*.
 
 The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:
 
@@ -108,9 +119,9 @@ loadTableData(data, data.key.column="Gene.ID", table.key.column = "Ensembl")
 *data.key.column* option is the name of *Key Column* in the data.
 *table.key.column* option is the name of *Key Column* in the network (node) table.
 
-- Once import is complete, look for the newly imported data columns in the *Node Table* to confirm that it worked.
+Once import is complete, look for the newly imported data columns in the *Node Table* to confirm that it worked.
 
-## Mapping Data to Visual Properties
+# Mapping Data to Visual Properties
 
 We now have the data in Cytoscape, linked to the pathway, and ready to map to visual properties of the nodes in the network. We are going to visualize the fold change as *Node Fill Color*.
 
@@ -128,7 +139,7 @@ if (abs(log2fold.min) < log2fold.max) {
 This will create a gradient from blue (negative fold change) to red (positive fold change).
 (And we assume that the minimum fold change is negative.)
 
-## Importing Pathways as Networks
+# Importing Pathways as Networks
 In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.
 
 Again, select a human pathway that mentions *pluripotency*. 
@@ -146,7 +157,7 @@ In this time, Let’s import the pathway into Cytoscape *as Network*.
 commandsRun(paste0('wikipathways import-as-network id=', human.pluripotency.wpids[1]))
 ```
 
-## Exporting Networks
+# Exporting Networks
 
 Cytoscape provides a number of ways to export results and visualizations:
 
