@@ -41,3 +41,19 @@ First, launch Cytoscape and keep it running whenever using RCy3. Confirm that yo
 
 
 This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.
+
+## Setup
+
+- Install the WikiPathways app via
+
+```{r}
+installApp('WikiPathways')
+```
+
+- Import the [experimental data](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv) via
+
+```{r}
+data <- read.csv("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv")
+```
+
+The data has been modified from [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads), and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).
