@@ -18,7 +18,7 @@ You can check the our project progress with the links below.
 - [ ] [stringApp](https://cytoscape.github.io/cytoscape-tutorials/protocols/stringApp/#/) with Python
 - [ ] [stringApp](https://cytoscape.github.io/cytoscape-tutorials/protocols/stringApp/#/) with R
 - [ ] [WikiPathways App](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/#/) with Python
-- [ ] [WikiPathways App](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/#/) with R
+- [x] [WikiPathways App](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/wikipathways-app.html) with R
 
 ### Data Visualization
 
