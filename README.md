@@ -45,7 +45,7 @@ You can check the our project progress with the links below.
 - [ ] [Differentially Expressed Genes Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with Python
 - [ ] [Differentially Expressed Genes Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with R
 - [ ] [Affinity Purification-Mass Spectrometry Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/AP-MS-network-analysis/#/) with Python
-- [ ] [Affinity Purification-Mass Spectrometry Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/AP-MS-network-analysis/#/) with R
+- [x] [Affinity Purification-Mass Spectrometry Network Analysis](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/AP-MS-network-analysis.nb.html) with R
 - [ ] [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis/#/) with Python
 - [ ] [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis/#/) with R
 - [ ] [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline/#/) with Python
