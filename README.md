@@ -38,7 +38,7 @@ You can check the our project progress with the links below.
 - [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with Python
 - [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with R
 - [ ] [Identifier Mapping](https://cytoscape.org/cytoscape-tutorials/protocols/identifier-mapping/#/) with Python
-- [ ] [Identifier Mapping](https://cytoscape.org/cytoscape-tutorials/protocols/identifier-mapping/#/) with R
+- [x] [Identifier Mapping](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Identifier-mapping.nb.html) with R
 
 ### Network Analysis
 
