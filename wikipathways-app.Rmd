@@ -35,17 +35,6 @@ This tutorial includes a basic workflow for visualizing experimental data on pat
 
 <hr />
 
-# Installation
-```{r, eval = FALSE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-
-if(!"RCy3" %in% installed.packages())
-  BiocManager::install("RCy3")
-
-library(RCy3)
-```
-
 # Prerequisites
 In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions.
 
