@@ -47,7 +47,7 @@ You can check the our project progress with the links below.
 - [ ] [Affinity Purification-Mass Spectrometry Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/AP-MS-network-analysis/#/) with Python
 - [x] [Affinity Purification-Mass Spectrometry Network Analysis](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/AP-MS-network-analysis.nb.html) with R
 - [ ] [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis/#/) with Python
-- [ ] [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis/#/) with R
+- [x] [Variant Data Analysis](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Cancer-networks-and-data.nb.html) with R
 - [ ] [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline/#/) with Python
 - [ ] [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline/#/) with R
 - [ ] [Functional Enrichment](https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/) with Python
@@ -58,4 +58,4 @@ You can check the our project progress with the links below.
 ## Exporting and Publishing
 
 - [ ] [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results/#/) with Python
-- [ ] [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results/#/) with R
+- [x] [Saving Results](http://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/saving-results.html) with R
