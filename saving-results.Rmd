@@ -1,0 +1,69 @@
+---
+title: "Saving Results"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+library(RCy3)
+```
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/cytoscape/cytoscape-automation/master/for-scripters/R/notebooks/Cancer-networks-and-data.Rmd).*
+
+<hr />
+
+[WikiPathways](https://www.wikipathways.org/) is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the [App Store](http://apps.cytoscape.org/apps/wikipathways).
+
+
+This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.
+
+<hr />
+
+# Saving Results
+Cytoscape provides a number of ways to save results and visualizations:
+
+- As a session:
+
+```
+saveSession('./saving-results')
+```
+
+- As an image:
+
+```
+exportImage('./saving-results', 'PDF')
+exportImage('./saving-results', 'PNG')
+exportImage('./saving-results', 'JPEG')
+exportImage('./saving-results', 'SVG')
+exportImage('./saving-results', 'PS')
+```
+
+- To the web:
+
+```
+exportNetworkToNDEx("user", "pass", TRUE)
+```
+
+- As a graph format file:
+
+```
+exportNetwork('./saving-results', 'CX')
+exportNetwork('./saving-results', 'cyjs')
+exportNetwork('./saving-results', 'graphML')
+exportNetwork('./saving-results', 'xGMML')
+exportNetwork('./saving-results', 'SIF')
+```
