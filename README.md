@@ -58,4 +58,4 @@ You can check the our project progress with the links below.
 ## Exporting and Publishing
 
 - [ ] [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results/#/) with Python
-- [ ] [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results/#/) with R
+- [x] [Saving Results](http://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/saving-results.html) with R
