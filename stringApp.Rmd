@@ -14,28 +14,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Installation
-```{r, eval = FALSE}
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/cytoscape/cytoscape-automation/master/for-scripters/R/notebooks/Cancer-networks-and-data.Rmd).*
 
-if(!"RCy3" %in% installed.packages())
-  BiocManager::install("RCy3")
-
-library(RCy3)
-```
-
-## Prerequisites
-In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions on screen.
-
-## Getting started
-First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
-```{r}
-    cytoscapePing()
-    cytoscapeVersionInfo()
-```
-
-# Cytoscape StringApp
+<hr />
 
 In these exercises, we will use the [stringApp](http://apps.cytoscape.org/apps/stringApp) for [Cytoscape](http://cytoscape.org/) to retrieve molecular networks from the [STRING](https://string-db.org/) and [STITCH](http://stitch-db.org/) databases. The exercises will teach you how to:
 
@@ -49,3 +30,37 @@ In these exercises, we will use the [stringApp](http://apps.cytoscape.org/apps/s
 - identify functional modules through network clustering
 
 The original version of this tutorial was developed by Lars Juhl Jensen of the Novo Nordisk Center for Protein Research at the University of Copenhagen. We thank professor Jensen for his gracious willingness to allow us to repackage the content for delivery as a Cytoscape tutorial.
+
+<hr />
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+# Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# Prerequisites
+
+The exercises require you to have certain Cytoscape apps installed.
+
+```{r}
+installApp('stringApp')
+installApp('yfileslayoutalgorithms')
+installApp('enhancedGraphics')
+installApp('clusterMaker2')
+```
+
+If you are not already familiar with the STRING database, we highly recommend that you go through the short [STRING exercises](https://jensenlab.org/training/string/) provided by the [Jensen lab](https://jensenlab.org/) to learn about the underlying data before working with them in these exercises.
+
