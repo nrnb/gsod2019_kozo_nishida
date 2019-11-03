@@ -1909,10 +1909,14 @@ summary {
 <div id="TOC">
 <ul>
 <li><a href="#installation"><span class="toc-section-number">1</span> Installation</a></li>
-<li><a href="#saving-results"><span class="toc-section-number">2</span> Saving Results</a></li>
+<li><a href="#saving-results"><span class="toc-section-number">2</span> Saving results</a></li>
 </ul>
 </div>
 
+<p><em>The R markdown is available from the pulldown menu for</em> Code <em>at the upper-right, choose “Download Rmd”, or <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-automation/master/for-scripters/R/notebooks/Cancer-networks-and-data.Rmd">download the Rmd from GitHub</a>.</em></p>
+<hr />
+<p>Cytoscape provides a number of ways to save results and visualizations:</p>
+<hr />
 <div id="installation" class="section level1">
 <h1><span class="header-section-number">1</span> Installation</h1>
 <pre class="r"><code>if (!requireNamespace(&quot;BiocManager&quot;, quietly = TRUE))
@@ -1920,15 +1924,9 @@ summary {
 if(!&quot;RCy3&quot; %in% installed.packages())
   BiocManager::install(&quot;RCy3&quot;)
 library(RCy3)</code></pre>
-<p><em>The R markdown is available from the pulldown menu for</em> Code <em>at the upper-right, choose “Download Rmd”, or <a href="https://raw.githubusercontent.com/cytoscape/cytoscape-automation/master/for-scripters/R/notebooks/Cancer-networks-and-data.Rmd">download the Rmd from GitHub</a>.</em></p>
-<hr />
-<p><a href="https://www.wikipathways.org/">WikiPathways</a> is a database of biological pathways maintained by and for the scientific community. Each pathway model in the database is annotated with database identfiers, which can be used for computation and data visualization. The WikiPathways App for Cytoscape is available from the <a href="http://apps.cytoscape.org/apps/wikipathways">App Store</a>.</p>
-<p>This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.</p>
-<hr />
 </div>
 <div id="saving-results" class="section level1">
-<h1><span class="header-section-number">2</span> Saving Results</h1>
-<p>Cytoscape provides a number of ways to save results and visualizations:</p>
+<h1><span class="header-section-number">2</span> Saving results</h1>
 <ul>
 <li>As a session:</li>
 </ul>
