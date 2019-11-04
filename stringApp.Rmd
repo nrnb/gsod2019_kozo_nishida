@@ -64,3 +64,30 @@ installApp('clusterMaker2')
 
 If you are not already familiar with the STRING database, we highly recommend that you go through the short [STRING exercises](https://jensenlab.org/training/string/) provided by the [Jensen lab](https://jensenlab.org/) to learn about the underlying data before working with them in these exercises.
 
+# Exercise 1
+
+In this exercise, we will perform some simple queries to retrieve molecular networks based on a protein, a small-molecule compound, a disease, and a topic in PubMed.
+
+## Protein queries
+
+You can query *STRING* as protein data source (in this query the *protein name* is *SORCS2*).
+You can select the appropriate organism by setting the *species* option (e.g. *Homo sapiens*).
+(And the following chunk also imports the result into Cytoscape.)
+
+```{r}
+string.cmd = 'string protein query query="SORCS2" species="Homo sapiens"'
+commandsRun(string.cmd)
+```
+
+The limit (Maximum number of interactors) option determines how many interaction partners of your protein(s) of interest will be added to the network.
+By default, if you enter only one protein name, the resulting network will contain 10 additional interactors. If you enter more than one protein name, the network will contain only the interactions among these proteins, unless you explicitly ask for additional proteins.
+
+```{r}
+string.cmd = 'string protein query query="SORCS2" species="Homo sapiens" limit=100'
+commandsRun(string.cmd)
+```
+
+How many nodes are in the resulting network?
+How does this compare to the maximum number of interactors you specified?
+What types of information does the *Node Table* provide?
+
