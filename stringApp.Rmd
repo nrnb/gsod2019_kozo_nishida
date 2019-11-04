@@ -70,7 +70,7 @@ In this exercise, we will perform some simple queries to retrieve molecular netw
 
 ## Protein queries
 
-You can query *STRING* as protein data source (in this query the *protein name* is *SORCS2*).
+You can query *STRING* as protein data source (in the following query the *protein name* is *SORCS2*).
 You can select the appropriate organism by setting the *species* option (e.g. *Homo sapiens*).
 (And the following chunk also imports the result into Cytoscape.)
 
@@ -90,4 +90,16 @@ commandsRun(string.cmd)
 How many nodes are in the resulting network?
 How does this compare to the maximum number of interactors you specified?
 What types of information does the *Node Table* provide?
+
+## Compound queries
+
+You can query *STITCH* as protein/compound data source (in the following query the *compound name* is *imatinib*).
+You can select the organism and number of additional interactors just like for the protein query above.
+
+```{r}
+string.cmd = 'string compound query query="imatinib" species="Homo sapiens"'
+commandsRun(string.cmd)
+```
+
+How is this network different from the protein-only network with respect to node types and the information provided in the Node Table?
 
