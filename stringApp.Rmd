@@ -107,7 +107,6 @@ How is this network different from the protein-only network with respect to node
 
 You can query *STRING* as disease data source (in the following query the *disease term* is *Alzheimer*).
 The stringApp will retrieve a STRING network for the top-N proteins (by default 100) associated with the disease.
-(And the following chunk also imports the result into Cytoscape.)
 
 ```{r}
 string.cmd = 'string disease query disease="Alzheimer"'
@@ -115,3 +114,15 @@ commandsRun(string.cmd)
 ```
 
 Which additional attribute column do you get in the Node Table for a disease query compared to a protein query? (Hint: check the last column.)
+
+## PubMed queries
+
+You can query *STRING* as *PubMed* data source (in the following query the query representing a topic of interest is *jet-lag*).
+You can use any query that would work on the PubMed website, but it should obviously a topic with related genes or proteins. The stringApp will query PubMed for the abstracts, find the top-N proteins (by default 100) associated with these abstracts, and retrieve a STRING network for them.
+
+```{r}
+string.cmd = 'string pubmed query pubmed="jet-lag"'
+commandsRun(string.cmd)
+```
+
+Which attribute column do you get in the Node Table for a PubMed query compared to a disease query? (Hint: check the last columns.)
