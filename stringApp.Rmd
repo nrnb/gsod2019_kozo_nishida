@@ -103,3 +103,15 @@ commandsRun(string.cmd)
 
 How is this network different from the protein-only network with respect to node types and the information provided in the Node Table?
 
+## Disease queries
+
+You can query *STRING* as disease data source (in the following query the *disease term* is *Alzheimer*).
+The stringApp will retrieve a STRING network for the top-N proteins (by default 100) associated with the disease.
+(And the following chunk also imports the result into Cytoscape.)
+
+```{r}
+string.cmd = 'string disease query disease="Alzheimer"'
+commandsRun(string.cmd)
+```
+
+Which additional attribute column do you get in the Node Table for a disease query compared to a protein query? (Hint: check the last column.)
