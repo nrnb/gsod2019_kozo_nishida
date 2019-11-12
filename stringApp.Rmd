@@ -126,3 +126,9 @@ commandsRun(string.cmd)
 ```
 
 Which attribute column do you get in the Node Table for a PubMed query compared to a disease query? (Hint: check the last columns.)
+
+# Exercise 2
+In this exercise, we will work with a list of 78 proteins that interact with TrkA (tropomyosin-related kinase A) in neuroblastoma cells 10 min after stimulation with NGF (nerve growth factor) ([Emdal et al., 2015](http://stke.sciencemag.org/content/8/374/ra40)). An adapted table with the data from this study is available [here].
+
+## Protein network retrieval
+
