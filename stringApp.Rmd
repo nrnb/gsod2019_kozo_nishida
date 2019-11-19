@@ -167,9 +167,10 @@ layoutNetwork('force-directed')
 
 [**yFiles** Layout Algorithms App](http://apps.cytoscape.org/apps/yfileslayoutalgorithms) does not support any automation.
 
-### Discrete color mapping
+## Discrete color mapping
 
-Cytoscape allows you to map attributes of the nodes and edges to visual properties such as node color and edge width. Here, we will map drug target family data from the [Pharos](https://pharos.nih.gov/idg/targets) database to the node color.
+Cytoscape allows you to map attributes of the nodes and edges to visual properties such as node color and edge width.
+Here, we will map the target family data to the node color.
 
 Run this code chunk to change the node **Fill Color** with **target family** column in the node table.
 
@@ -201,3 +202,14 @@ getTableColumns('node','target::family')
 ```
 )
 
+You should see the attribute values **GPCR** or **Kinase**.
+
+You can also set a default color, e.g. for all nodes that do not have a target family annotation with
+
+```{r}
+setNodeColorDefault('#FFFFFF', style.name = "STRING style v1.5")
+```
+
+*How many of the proteins in the network are kinases?*
+
+Note that the retrieved network contains a lot of additional information associated with the nodes and edges, such as the protein sequence, tissue expression data (Node Table) as well as the confidence scores for the different interaction evidences (Edge Table). In the following, we will explore these data using Cytoscape.
