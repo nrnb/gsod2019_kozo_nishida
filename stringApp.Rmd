@@ -162,3 +162,8 @@ layoutNetwork('force-directed')
 ```
 
 *Can you find a layout that allows you to easily recognize patterns in the network? What about the Edge-weighted Spring Embedded Layout with the attribute ‘score’, which is the combined STRING interaction score.*
+
+### Notice about yFiles layout automation
+[**yFiles** Layout Algorithms App](http://apps.cytoscape.org/apps/yfileslayoutalgorithms) does not support any automation.
+
+
