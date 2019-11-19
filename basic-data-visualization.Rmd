@@ -27,6 +27,10 @@ This tutorial presents a scenario of how expression and network data can be comb
 ## Prerequisites
 In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions.
 
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/FinalNetwork.png){width=60%}
+</center>
+
 <hr />
 
 # Installation

@@ -33,6 +33,10 @@ library(RCy3)
 
 This tutorial includes a basic workflow for visualizing experimental data on pathways in Cytoscape, as well as how to import pathways as networks.
 
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/StatinData.png){width=60%}
+</center>
+
 <hr />
 
 # Prerequisites
@@ -87,6 +91,10 @@ commandsRun(paste0('wikipathways import-as-pathway id=',human.statin.wpids[1]))
 
 The pathway opens in Cytoscape with the original pathway layout and the WikiPathways style:
 
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/Statin-pathway.png){width=60%}
+</center>
+
 # Importing Expression Data
 
 Import the [experimental data](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/WPExpData.csv) via
@@ -98,6 +106,10 @@ data <- read.csv("https://cytoscape.github.io/cytoscape-tutorials/protocols/data
 The data has been modified from [Expression Atlas](https://www.ebi.ac.uk/gxa/experiments/E-GEOD-6088/Downloads), and compares gene expression between individuals with homozygous familial hypercholesterolemia and normal individuals (log2 fold change values).
 
 Nodes in pathways from WikiPathways are annotated with identifiers from public databases, visible in the *XrefId* column in the *Node Table*. During import, the WikiPathways App maps these identifiers automatically to Ensembl identifiers, adding them to a new column called *Ensembl*.
+
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/Statin_mapped2.png){width=60%}
+</center>
 
 The experimental data in this case is annotated with Ensembl identifiers, so we can use the new Ensembl column to map to the data:
 
@@ -128,6 +140,10 @@ if (abs(log2fold.min) < log2fold.max) {
 This will create a gradient from blue (negative fold change) to red (positive fold change).
 (And we assume that the minimum fold change is negative.)
 
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/StatinData.png){width=60%}
+</center>
+
 # Importing Pathways as Networks
 In addition to importing pathways with the visual style and layout unique to WikiPathways, the WikiPathways App also allows import of any pathway as a simple network.
 
@@ -145,6 +161,11 @@ In this time, Let’s import the pathway into Cytoscape *as Network*.
 ```{r}
 commandsRun(paste0('wikipathways import-as-network id=', human.pluripotency.wpids[1]))
 ```
+
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/wnt-pluri-network.png){width=60%}
+</center>
+
 
 # Exporting Networks
 
