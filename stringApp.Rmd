@@ -70,8 +70,8 @@ In this exercise, we will perform some simple queries to retrieve molecular netw
 
 ## Protein queries
 
-You can query *STRING* as protein data source (in the following query the *protein name* is *SORCS2*).
-You can select the appropriate organism by setting the *species* option (e.g. *Homo sapiens*).
+You can query **STRING** as protein data source (in the following query the **protein name** is **SORCS2**).
+You can select the appropriate organism by setting the **species** option (e.g. **Homo sapiens**).
 (And the following chunk also imports the result into Cytoscape.)
 
 ```{r}
@@ -89,11 +89,11 @@ commandsRun(string.cmd)
 
 How many nodes are in the resulting network?
 How does this compare to the maximum number of interactors you specified?
-What types of information does the *Node Table* provide?
+What types of information does the **Node Table** provide?
 
 ## Compound queries
 
-You can query *STITCH* as protein/compound data source (in the following query the *compound name* is *imatinib*).
+You can query **STITCH** as protein/compound data source (in the following query the **compound name** is **imatinib**).
 You can select the organism and number of additional interactors just like for the protein query above.
 
 ```{r}
@@ -105,7 +105,7 @@ How is this network different from the protein-only network with respect to node
 
 ## Disease queries
 
-You can query *STRING* as disease data source (in the following query the *disease term* is *Alzheimer*).
+You can query **STRING** as disease data source (in the following query the **disease term** is **Alzheimer**).
 The stringApp will retrieve a STRING network for the top-N proteins (by default 100) associated with the disease.
 
 ```{r}
@@ -117,7 +117,7 @@ Which additional attribute column do you get in the Node Table for a disease que
 
 ## PubMed queries
 
-You can query *STRING* as *PubMed* data source (in the following query the query representing a topic of interest is *jet-lag*).
+You can query **STRING** as **PubMed** data source (in the following query the query representing a topic of interest is **jet-lag**).
 You can use any query that would work on the PubMed website, but it should obviously a topic with related genes or proteins. The stringApp will query PubMed for the abstracts, find the top-N proteins (by default 100) associated with these abstracts, and retrieve a STRING network for them.
 
 ```{r}
@@ -128,7 +128,37 @@ commandsRun(string.cmd)
 Which attribute column do you get in the Node Table for a PubMed query compared to a disease query? (Hint: check the last columns.)
 
 # Exercise 2
-In this exercise, we will work with a list of 78 proteins that interact with TrkA (tropomyosin-related kinase A) in neuroblastoma cells 10 min after stimulation with NGF (nerve growth factor) ([Emdal et al., 2015](http://stke.sciencemag.org/content/8/374/ra40)). An adapted table with the data from this study is available [here].
+In this exercise, we will work with a list of 78 proteins that interact with TrkA (tropomyosin-related kinase A) in neuroblastoma cells 10 min after stimulation with NGF (nerve growth factor) ([Emdal et al., 2015](http://stke.sciencemag.org/content/8/374/ra40)). An adapted table with the data from this study is available [here](https://cytoscape.org/cytoscape-tutorials/protocols/data/Emdal2015SciSignal.xlsx).
 
 ## Protein network retrieval
 
+Here, we run a query with the first column (UniProt IDs) in the table.
+
+```{r}
+library(httr)
+library(readxl)
+
+xlsx_url = "https://cytoscape.org/cytoscape-tutorials/protocols/data/Emdal2015SciSignal.xlsx"
+GET(xlsx_url, write_disk(tf <- tempfile(fileext = ".xlsx")))
+df <- read_excel(tf)
+
+string.cmd = paste('string protein query query="', paste(df$UniProt, collapse = '\n'), '"', sep = "")
+commandsRun(string.cmd)
+```
+
+How many nodes and edges are there in the resulting network? Do the proteins all form a connected network? Why?
+
+Cytoscape provides several network layout options.
+For example, you can try the **Degree Sorted Circle Layout** with
+
+```{r}
+layoutNetwork('degree-circle')
+```
+
+You can try the **Prefuse Force Directed Layout** with
+
+```{r}
+layoutNetwork('force-directed')
+```
+
+*Can you find a layout that allows you to easily recognize patterns in the network? What about the Edge-weighted Spring Embedded Layout with the attribute ‘score’, which is the combined STRING interaction score.*
