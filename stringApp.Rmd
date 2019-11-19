@@ -163,7 +163,41 @@ layoutNetwork('force-directed')
 
 *Can you find a layout that allows you to easily recognize patterns in the network? What about the Edge-weighted Spring Embedded Layout with the attribute ‘score’, which is the combined STRING interaction score.*
 
-### Notice about yFiles layout automation
+**Notice about yFiles layout automation**
+
 [**yFiles** Layout Algorithms App](http://apps.cytoscape.org/apps/yfileslayoutalgorithms) does not support any automation.
 
+### Discrete color mapping
+
+Cytoscape allows you to map attributes of the nodes and edges to visual properties such as node color and edge width. Here, we will map drug target family data from the [Pharos](https://pharos.nih.gov/idg/targets) database to the node color.
+
+Run this code chunk to change the node **Fill Color** with **target family** column in the node table.
+
+```{r}
+column <- "target::family"
+values <- c('Kinase', 'GPCR')
+colors <- c('#FF0000', '#0000FF')
+setNodeColorMapping(column, values, colors, mapping.type = "d", style.name = "STRING style v1.5")
+```
+
+You can find the column names in the node table with
+```{r}
+getTableColumnNames()
+```
+
+You can find the visual style names with
+```{r}
+getVisualStyleNames()
+```
+
+
+This action will remove the rainbow coloring of the nodes and present you with a list of all the different values of the attribute that are exist in the network.
+
+*Which target families are present in the network?*
+
+(Actually you already used the target family names in `column`. You can check it with
+```{r}
+getTableColumns('node','target::family')
+```
+)
 
