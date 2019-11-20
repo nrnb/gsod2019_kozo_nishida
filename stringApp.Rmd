@@ -223,3 +223,9 @@ We already imported the data from an Excel spreadsheet derived from data provide
 ```{r}
 head(df)
 ```
+
+Now you need to map unique identifiers between the entries in the data and the nodes in the network.
+The key point of this is to identify which nodes in the network are equivalent to which entries in the table.
+This enables mapping of data values into visual properties like Fill Color and Shape. 
+This kind of mapping is typically done by comparing the unique Identifier attribute value for each node (Key Column for Network) with the unique Identifier value for each data value (key symbol).
+As a default, Cytoscape looks for an attribute value of ‘ID’ in the network and a user-supplied Key in the dataset.
