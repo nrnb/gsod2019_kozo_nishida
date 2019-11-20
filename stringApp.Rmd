@@ -213,3 +213,13 @@ setNodeColorDefault('#FFFFFF', style.name = "STRING style v1.5")
 *How many of the proteins in the network are kinases?*
 
 Note that the retrieved network contains a lot of additional information associated with the nodes and edges, such as the protein sequence, tissue expression data (Node Table) as well as the confidence scores for the different interaction evidences (Edge Table). In the following, we will explore these data using Cytoscape.
+
+## Data import
+
+Network nodes and edges can have additional information associated with them that we can load into Cytoscape and use for visualization.
+
+We already imported the data from an Excel spreadsheet derived from data provided in the paper mentioned above. Here we check it again with
+
+```{r}
+head(df)
+```
