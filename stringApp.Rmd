@@ -141,10 +141,13 @@ library(readxl)
 xlsx_url = "https://cytoscape.org/cytoscape-tutorials/protocols/data/Emdal2015SciSignal.xlsx"
 GET(xlsx_url, write_disk(tf <- tempfile(fileext = ".xlsx")))
 df <- read_excel(tf)
+```
 
+```{r}
 string.cmd = paste('string protein query query="', paste(df$UniProt, collapse = '\n'), '"', sep = "")
 commandsRun(string.cmd)
 ```
+
 
 How many nodes and edges are there in the resulting network? Do the proteins all form a connected network? Why?
 
@@ -239,3 +242,31 @@ loadTableData(as.data.frame(df), data.key.column = "UniProt", table = "node", ta
 
 If there is a match between the value of a Key in the dataset and the value the Key Column for Network field in the network, all attribute–value pairs associated with the element in the dataset are assigned to the matching node in the network. 
 You will find the imported columns at the end of the Node Table.
+
+## Continuous color mapping
+
+Now, we want to color the nodes according to the protein abundance (log ratio) compared to the cells before NGF treatment.
+Here we set **Column** to the node column containing the data that you want to use (10 min log ratio).
+
+```{r}
+logratio.score.table <- getTableColumns('node', "10 min log ratio")
+```
+
+Since this is a numeric value, we will use the Continuous Mapping as the Mapping Type, and set a color gradient for how abundant each protein is.
+
+```{r}
+logratio.min <- min(logratio.score.table, na.rm = T)
+logratio.max <- max(logratio.score.table, na.rm = T)
+```
+
+```{r}
+if (abs(logratio.min) < logratio.max) {
+  setNodeColorMapping("10 min log ratio", c(-logratio.max, 0, logratio.max), c('#0000FF', '#FFFFFF', '#FF0000'), style.name = "STRING style v1.5")
+} else {
+  setNodeColorMapping("10 min log ratio", c(logratio.min, 0, -logratio.min), c('#0000FF', '#FFFFFF', '#FF0000'), style.name = "STRING style v1.5")
+}
+```
+
+The color gradient blue-white-red gives a visualization of the negative-to-positive abundance ratio.
+
+*Are the up-regulated nodes grouped together?*
