@@ -281,7 +281,25 @@ The color gradient blue-white-red gives a visualization of the negative-to-posit
 Next, we will retrieve functional enrichment for the proteins in our network.
 
 ```{r}
-#string.cmd = paste('string protein query query="', paste(df$UniProt, collapse = '\n'), '"', sep = "")
 string.cmd = 'string retrieve enrichment allNetSpecies="Homo sapiens" background="genome"'
 foo = commandsRun(string.cmd)
 ```
+
+# Exercise 3
+
+We are going to use the stringApp to query the [DISEASES](https://diseases.jensenlab.org/) database for proteins associated with Parkinson’s disease and with Alzheimer’s disease, retrieve STRING networks for both, created a combined network for the two neurodegenerative diseases, identify clusters in the network, and color it to compare the diseases.
+
+## Disease network retrieval
+
+Retrieve a network for **Parkinson’s disease** and another for **Alzheimer’s disease**.
+
+```{r}
+string.cmd = 'string disease query disease="Parkinson"'
+commandsRun(string.cmd)
+```
+
+```{r}
+string.cmd = 'string disease query disease="Alzheimer"'
+commandsRun(string.cmd)
+```
+
