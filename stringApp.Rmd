@@ -344,3 +344,14 @@ renameTableColumn("stringdb::disease score", "stringdb::PD score")
 setCurrentNetwork("String Network - Alzheimer's disease")
 renameTableColumn("stringdb::disease score", "stringdb::AD score")
 ```
+
+## Merging networks
+
+Cytoscape provides functionality to merge two or more networks, building either their union, intersection or difference.
+To merge the two disease networks 
+
+```{r}
+
+```
+
+*How many nodes and edges are there in the merged network compared to the two individual disease networks?*
