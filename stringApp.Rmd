@@ -285,6 +285,12 @@ string.cmd = 'string retrieve enrichment allNetSpecies="Homo sapiens" background
 foo = commandsRun(string.cmd)
 ```
 
+```{r}
+string.cmd = 'string retrieve enrichment allNetSpecies="Homo sapiens" background="genome"'
+foo = commandsRun(string.cmd)
+```
+
+
 # Exercise 3
 
 We are going to use the stringApp to query the [DISEASES](https://diseases.jensenlab.org/) database for proteins associated with Parkinson’s disease and with Alzheimer’s disease, retrieve STRING networks for both, created a combined network for the two neurodegenerative diseases, identify clusters in the network, and color it to compare the diseases.
@@ -303,3 +309,38 @@ string.cmd = 'string disease query disease="Alzheimer"'
 commandsRun(string.cmd)
 ```
 
+## Working with node attributes
+
+Browse through the node attributes table and find the disease score column.
+
+```{r}
+getTableColumnNames()
+```
+
+Sort it descending by values to see the highest disease scores.
+
+```{r}
+disease.score <- getTableColumns('node', "stringdb::disease score")
+disease.score.sorted <- disease.score[order(-disease.score$`stringdb::disease score`),,drop=FALSE]
+head(disease.score.sorted)
+```
+
+The row names are SUIDs for the network nodes.
+You can highlight the corresponding nodes by selecting the rows in the table,
+
+```{r}
+selectNodes(rownames(head(disease.score.sorted)))
+```
+
+Look for an example for a node with a disease score of 5 and one with a disease score below 4.
+
+Rename the **disease score** columns in the two networks to **PD score** and **AD score**, respectively, by 
+
+```{r}
+setCurrentNetwork("String Network - Parkinson's disease")
+renameTableColumn("stringdb::disease score", "stringdb::PD score")
+```
+```{r}
+setCurrentNetwork("String Network - Alzheimer's disease")
+renameTableColumn("stringdb::disease score", "stringdb::AD score")
+```
