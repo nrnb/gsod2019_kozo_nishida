@@ -281,11 +281,11 @@ The color gradient blue-white-red gives a visualization of the negative-to-posit
 ## Functional enrichment
 
 Next, we will retrieve functional enrichment for the proteins in our network.
+After making sure that no nodes are selected in the network, go to the menu **Apps → STRING Enrichment → Retrieve functional enrichment**.
+A new STRING Enrichment tab will appear in the Table Panel on the bottom. 
+It contains a table of enriched terms and corresponding information for each enrichment category.
 
-```{r}
-string.cmd = 'string retrieve enrichment allNetSpecies="Homo sapiens" background="genome"'
-foo = commandsRun(string.cmd)
-```
+*Which are the three most statistically significant terms?*
 
 
 # Exercise 3
