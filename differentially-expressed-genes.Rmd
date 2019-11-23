@@ -86,13 +86,23 @@ To identify a relevant network, we will query the STRING database in two differe
 df <- read.table("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt")
 ```
 
-- Run this code chunk to run **STRING protein query**.
+- Run this code chunk to run **STRING protein query** with confidence (score) cutoff of 0.4.
 
 ```{r}
-string.cmd = paste('string protein query query="', paste(df$V1, collapse = '\n'), '"', sep = "")
+string.cmd = paste('string protein query query="', paste(df$V1, collapse = '\n'), '" cutoff=0.4  species="Homo sapiens"', sep = "")
 commandsRun(string.cmd)
 ```
 
+- The resulting network will load automatically.
+
+The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.
+
+```{r}
+getTableColumnNames('edge')
 ```
-It seems that this string.cmd exceeds the URL length limit...
+
+```{r}
+evidence.score <- getTableColumns('edge', "stringdb::score")
+min(evidence.score)
 ```
+
