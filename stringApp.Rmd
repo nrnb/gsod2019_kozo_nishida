@@ -294,6 +294,19 @@ You can see which proteins are annotated with a given term by selecting the term
 
 *Do the functional terms assigned to a protein correlate with whether it is up- or down-regulated?*
 
+Next, we will visualize the top-3 enriched terms in the network by using split charts.
+Click the settings icon (rightmost icon) and set the **Number of terms** to chart to 3; you can optionally also **Change Color Palette** before clicking **OK** to confirm the new settings.
+Click the colorful chart icon to show the terms as the charts on the network.
+
+*Do these terms give good coverage of the proteins in network?*
+
+Finally, save the list of enriched terms and associated p-values as a text file by
+
+```{r}
+commandsPOST(paste0('table export table="STRING Enrichment: All" options="CSV" outputFile="',paste(getwd(),"string-enrichment-all.csv",sep = "/"),'"'))
+```
+
+
 # Exercise 3
 
 We are going to use the stringApp to query the [DISEASES](https://diseases.jensenlab.org/) database for proteins associated with Parkinson’s disease and with Alzheimer’s disease, retrieve STRING networks for both, created a combined network for the two neurodegenerative diseases, identify clusters in the network, and color it to compare the diseases.
