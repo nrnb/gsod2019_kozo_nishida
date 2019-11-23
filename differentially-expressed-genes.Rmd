@@ -61,3 +61,12 @@ The data used in this protocol are from [The Cancer Genome Atlas](https://cancer
 We will focus on the differential gene expression between two subtypes, **Mesenchymal** and **Immunoreactive**.
 
 For convenience, the data have already been analyzed and pre-filtered, using log fold change value and adjusted p-value.
+
+# Network Retrieval
+
+Many public databases and multiple Cytoscape apps allow you to retrieve a network or pathway relevant to your data.
+For this workflow, we will use the STRING app. Some other options include:
+
+- [WikiPathways](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/wikipathways-app.html)
+- [NDEx](http://www.ndexbio.org/)
+- [GeneMANIA](https://genemania.org/)
