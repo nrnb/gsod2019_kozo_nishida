@@ -53,13 +53,15 @@ First, launch Cytoscape and keep it running whenever using RCy3. Confirm that yo
 
 # Prerequisites
 
-The exercises require you to have certain Cytoscape apps installed.
+The exercises require you to have certain Cytoscape apps and R packages installed.
 
 ```{r}
 installApp('stringApp')
 installApp('yfileslayoutalgorithms')
 installApp('enhancedGraphics')
 installApp('clusterMaker2')
+install.packages("httr")
+install.packages("readxl")
 ```
 
 If you are not already familiar with the STRING database, we highly recommend that you go through the short [STRING exercises](https://jensenlab.org/training/string/) provided by the [Jensen lab](https://jensenlab.org/) to learn about the underlying data before working with them in these exercises.
