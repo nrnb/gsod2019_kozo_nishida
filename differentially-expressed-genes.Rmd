@@ -70,3 +70,29 @@ For this workflow, we will use the STRING app. Some other options include:
 - [WikiPathways](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/wikipathways-app.html)
 - [NDEx](http://www.ndexbio.org/)
 - [GeneMANIA](https://genemania.org/)
+
+# Retrieve Networks from STRING
+
+To identify a relevant network, we will query the STRING database in two different ways:
+
+- Query **STRING protein** with the list of differentially expressed genes.
+- Query **STRING disease** for ovarian cancer.
+
+## STRING Protein Query: Up-regulated genes
+
+- Read the file containing the list of up-regulated genes, TCGA-Ovarian-MesenvsImmuno_UP.txt.
+
+```{r}
+df <- read.table("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt")
+```
+
+- Run this code chunk to run **STRING protein query**.
+
+```{r}
+string.cmd = paste('string protein query query="', paste(df$V1, collapse = '\n'), '"', sep = "")
+commandsRun(string.cmd)
+```
+
+```
+It seems that this string.cmd exceeds the URL length limit...
+```
