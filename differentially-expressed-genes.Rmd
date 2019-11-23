@@ -14,6 +14,19 @@ knitr::opts_chunk$set(
 )
 ```
 
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/differentially-expressed-genes.Rmd).*
+
+<hr />
+
+This protocol describes a network analysis workflow in Cytoscape for a set of differentially expressed genes. Points covered:
+
+- Retrieving relevant networks from public databases
+- Network functional enrichment analysis
+- Integration and visualization of experimental data
+- Exporting network visualizations
+
+<hr />
+
 # Installation
 ```{r, eval = FALSE}
 if (!requireNamespace("BiocManager", quietly = TRUE))
@@ -25,21 +38,17 @@ if(!"RCy3" %in% installed.packages())
 library(RCy3)
 ```
 
-## Prerequisites
-In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions on screen.
-
-## Getting started
+# Getting started
 First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
 ```{r}
     cytoscapePing()
     cytoscapeVersionInfo()
 ```
 
-# Differentially Expressed Genes Network Analysis
+# Setup
 
-This protocol describes a network analysis workflow in Cytoscape for a set of differentially expressed genes. Points covered:
+If you haven't already, install the [STRINGapp](http://apps.cytoscape.org/apps/stringapp)
 
-- Retrieving relevant networks from public databases
-- Network functional enrichment analysis
-- Integration and visualization of experimental data
-- Exporting network visualizations
+```{r}
+installApp('stringApp')
+```
