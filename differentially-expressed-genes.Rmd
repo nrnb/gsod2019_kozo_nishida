@@ -52,3 +52,12 @@ If you haven't already, install the [STRINGapp](http://apps.cytoscape.org/apps/s
 ```{r}
 installApp('stringApp')
 ```
+
+# Background
+
+Ovarian serous cystadenocarcinoma is a type of epithelial ovarian cancer which accounts for ~90% of all ovarian cancers.
+The data used in this protocol are from [The Cancer Genome Atlas](https://cancergenome.nih.gov/), in which multiple subtypes of serous cystadenocarcinoma were identified and characterized by mRNA expression.
+
+We will focus on the differential gene expression between two subtypes, **Mesenchymal** and **Immunoreactive**.
+
+For convenience, the data have already been analyzed and pre-filtered, using log fold change value and adjusted p-value.
