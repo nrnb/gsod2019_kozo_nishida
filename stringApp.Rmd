@@ -285,11 +285,6 @@ string.cmd = 'string retrieve enrichment allNetSpecies="Homo sapiens" background
 foo = commandsRun(string.cmd)
 ```
 
-```{r}
-string.cmd = 'string retrieve enrichment allNetSpecies="Homo sapiens" background="genome"'
-foo = commandsRun(string.cmd)
-```
-
 
 # Exercise 3
 
