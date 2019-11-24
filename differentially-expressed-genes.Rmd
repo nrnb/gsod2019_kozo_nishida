@@ -131,3 +131,20 @@ The features are all available at the top of the **STRING Enrichment** tab.
 - We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/FilterIcon.png). Select **GO Process** and check the **Remove redundant terms** check-box. Then click OK.
 - Next, we will add a split donut chart to the nodes representing the top terms by clicking on ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/ChartIcon.png).
 - Explore custom setting via ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/SettingsIcon.png) in the top right of the STRING enrichment tab.
+
+# STRING Protein Query: Down-regulated genes
+
+Repeat the network search, enrichment analysis and visualization for the set of down-regulated genes:
+
+- Query STRING protein with the list of symbols in [TCGA-Ovarian-MesenvsImmuno_DOWN.txt](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt).
+
+```{r}
+df <- read.table("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt")
+string.cmd = paste('string protein query query="', paste(df$V1, collapse = '\n'), '" cutoff=0.4  species="Homo sapiens"', sep = "")
+commandsRun(string.cmd)
+```
+
+- Perform STRING Enrichment analysis on the resulting network.
+- Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To distinguish between the visualizations of up- and down-regulated results, pick a different color palette under Change Color Palette under Settings.
+
+_Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, change the split donut to a Pie Chart in **Settings** and then try out some of the layouts (see Layout menu), you can end up with network views like this..._
