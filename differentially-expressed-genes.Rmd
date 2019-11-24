@@ -118,3 +118,16 @@ Note that there are several other options, including:
 - [BiNGO](http://apps.cytoscape.org/apps/bingo): GO overrepresentation analysis on networks
 - [EnrichmentMap](https://cytoscape.org/cytoscape-tutorials/protocols/enrichmentmap-pipeline/): Visualize the results of gene-set enrichment as a network
 
+# STRING Enrichment
+
+The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.
+
+- With the STRING results network selected, go to **Apps → STRING Enrichment → Retrieve functional enrichment**.
+- When the enrichment analysis is complete, a new tab titled STRING Enrichment will open in the Table Panel.
+
+The STRING app includes several options for filtering and displaying the enrichment results.
+The features are all available at the top of the **STRING Enrichment** tab.
+
+- We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/FilterIcon.png). Select **GO Process** and check the **Remove redundant terms** check-box. Then click OK.
+- Next, we will add a split donut chart to the nodes representing the top terms by clicking on ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/ChartIcon.png).
+- Explore custom setting via ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/SettingsIcon.png) in the top right of the STRING enrichment tab.
