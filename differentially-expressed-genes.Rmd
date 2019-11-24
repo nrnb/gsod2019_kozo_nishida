@@ -123,7 +123,9 @@ Note that there are several other options, including:
 The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.
 
 - With the STRING results network selected, go to **Apps → STRING Enrichment → Retrieve functional enrichment**.
-- When the enrichment analysis is complete, a new tab titled STRING Enrichment will open in the Table Panel.
+- When the enrichment analysis is complete, a new tab titled **STRING Enrichment** will open in the **Table Panel**.
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-enrichment.png)
 
 The STRING app includes several options for filtering and displaying the enrichment results.
 The features are all available at the top of the **STRING Enrichment** tab.
@@ -131,6 +133,8 @@ The features are all available at the top of the **STRING Enrichment** tab.
 - We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/FilterIcon.png). Select **GO Process** and check the **Remove redundant terms** check-box. Then click OK.
 - Next, we will add a split donut chart to the nodes representing the top terms by clicking on ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/ChartIcon.png).
 - Explore custom setting via ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/SettingsIcon.png) in the top right of the STRING enrichment tab.
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-enrichment-chart.png)
 
 # STRING Protein Query: Down-regulated genes
 
@@ -148,3 +152,17 @@ commandsRun(string.cmd)
 - Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To distinguish between the visualizations of up- and down-regulated results, pick a different color palette under Change Color Palette under Settings.
 
 _Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, change the split donut to a Pie Chart in **Settings** and then try out some of the layouts (see Layout menu), you can end up with network views like this..._
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-de-down.png)
+
+# STRING Disease Query
+
+Now, we will query the **STRING disease** database to retrieve a network of ovarian cancer associated genes, completely independent of our dataset.
+
+```{r}
+string.cmd = 'string disease query disease="ovarian cancer"'
+commandsRun(string.cmd)
+```
+
+This will bring in the top 100 ovarian cancer associated genes connected with a confidence score greater than 0.4.
+(We did not give them as parameters[100 and 0.4]. This is because the default values are those.)
