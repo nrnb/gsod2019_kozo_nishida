@@ -188,9 +188,13 @@ Here we set **Human** as species, **HGNC** as **Map from**, and **Entrez Gene** 
 head(mapped.cols)
 ```
 
-- `mapped.cols` displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well.
+- `mapped.cols` displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well. You should see the mapped `Entrez Gene` column with
 
-- Next, we can load the data.
+```{r}
+tail(getTableColumnNames('node'))
+```
+
+- Next, we can load the data (a local copy of [TCGA-Ovarian-MesenvsImmuno_data.csv](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv)).
 
 ```{r}
 df <- read.csv("https://cytoscape.org/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv")
@@ -198,5 +202,19 @@ df <- read.csv("https://cytoscape.org/cytoscape-tutorials/protocols/data/TCGA-Ov
 
 ```{r}
 head(df)
+```
+
+And integrate the data with the network (node) table in Cytoscape.
+- **Key Column for Network** should be **Entrez Gene**.
+- **Gene** should be the key of the data(`df`).
+
+```{r}
+loadTableData(df, data.key.column = "Gene", table = "node", table.key.column = "Entrez Gene")
+```
+
+Now you should see the integrated the column names of the data(`df`).
+
+```{r}
+tail(getTableColumnNames('node'))
 ```
 
