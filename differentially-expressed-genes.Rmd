@@ -278,3 +278,28 @@ The network will now look like this:
 
 - Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)
 - Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker
+
+# Exporting Networks
+Cytoscape provides a number of ways to export results and visualizations:
+
+- As an image:
+
+```{r}
+exportImage('./differentially-expressed-genes', 'PDF')
+exportImage('./differentially-expressed-genes', 'PNG')
+exportImage('./differentially-expressed-genes', 'JPEG')
+exportImage('./differentially-expressed-genes', 'SVG')
+exportImage('./differentially-expressed-genes', 'PS')
+```
+
+- To a public repository:
+
+```
+exportNetworkToNDEx("user", "password", TRUE)
+```
+
+- As a Cytoscape JSON file:
+
+```{r}
+exportNetwork('./differentially-expressed-genes', 'cyjs')
+```
