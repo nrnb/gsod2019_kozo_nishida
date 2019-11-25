@@ -273,3 +273,8 @@ setNodeBorderColorBypass(getSelectedNodes(), '#FF007F')
 The network will now look like this:
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-ovarian-drivers.png)
+
+# Other Analysis Options
+
+- Exploring networks: finding paths, hubs and modules (clusterMaker, MCODE, jActiveModules, NetworkAnalyzer, PathFinder)
+- Extending networks with Transcription Factors, miRNAs, etc using CyTargetLinker
