@@ -251,3 +251,25 @@ _Pro-tip: If you apply the **yFiles Organic** layout, you can end up with networ
 ([**yFiles** Layout Algorithms App](http://apps.cytoscape.org/apps/yfileslayoutalgorithms) does not support any automation. Please select it in Cytoscape Desktop menubar.)
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-ovarian-styled.png)
+
+The TCGA found several genes that were commonly mutated in ovarian cancer, so called "cancer drivers".
+We can add information about these genes to the network visualization, by changing the visual style of these nodes.
+Three of the most important drivers are **TP53**, **BRCA1** and **BRCA2**.
+We will add a thicker, clored border for these genes in the network.
+
+- Select all three driver genes by
+
+```{r}
+selectNodes(c("TP53", "BRCA1", "BRCA2"), by.col = "display name")
+```
+
+- Add a style bypass for node **Border Width** (5) and node **Border Paint** (bright pink). You can create a style bypass by
+
+```{r}
+setNodeBorderWidthBypass(getSelectedNodes(), 5)
+setNodeBorderColorBypass(getSelectedNodes(), '#FF007F')
+```
+
+The network will now look like this:
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-ovarian-drivers.png)
