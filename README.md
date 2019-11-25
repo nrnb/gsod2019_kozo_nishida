@@ -9,7 +9,7 @@ You can check the our project progress with the links below.
 - [ ] ["Basic Data Visualization"](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/) with Python
 - [x] ["Basic Data Visualization"](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/basic-data-visualization.html) with R
 - [ ] ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with Python
-- [x] ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with R
+- [x] ["Differentially Expressed Genes"](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/differentially-expressed-genes) with R
 
 ## Protocols
 
