@@ -166,3 +166,37 @@ commandsRun(string.cmd)
 
 This will bring in the top 100 ovarian cancer associated genes connected with a confidence score greater than 0.4.
 (We did not give them as parameters[100 and 0.4]. This is because the default values are those.)
+
+# Data integration
+
+Next we will import log fold changes and p-values from our TCGA dataset and use them to create a visualization.
+Since the network and data use different identifiers, we first have to do some quick identifier mapping. 
+In this case, we will use the gene symbol in the **display name** column to retrieve **Entrez Gene** identifiers.
+
+```{r}
+getTableColumnNames('node')
+```
+
+
+```{r}
+mapped.cols <- mapTableColumn("display name",'Human','HGNC','Entrez Gene')
+```
+
+Here we set **Human** as species, **HGNC** as **Map from**, and **Entrez Gene** as **To**.
+
+```{r}
+head(mapped.cols)
+```
+
+- `mapped.cols` displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well.
+
+- Next, we can load the data.
+
+```{r}
+df <- read.csv("https://cytoscape.org/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv")
+```
+
+```{r}
+head(df)
+```
+
