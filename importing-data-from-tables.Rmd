@@ -1,0 +1,69 @@
+---
+title: "Importing Data From Tables"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/importing-data-from-tables.Rmd).*
+
+<hr />
+
+Cytoscape supports the ability to link data to networks as node and edge attributes, enabling data-driven network visualization. This tutorial describes how to load expression data from a spreadsheet, and how to link it to already loaded networks.
+
+<hr />
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+# Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# Prerequisites
+In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions.
+
+You will also need the `httr` R package to save the remote network data:
+
+```{r}
+install.packages("httr")
+```
+
+# Loading Network
+
+- Download the network [galFiltered.sif](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif).
+
+```{r}
+library(httr)
+sif_url = "https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"
+GET(sif_url, write_disk(tf <- tempfile(fileext = ".sif")))
+
+#df <- read_excel(tf)
+```
+
+- And load the network via
+
+```{r}
+importNetworkFromFile(file = tf)
+```
+
