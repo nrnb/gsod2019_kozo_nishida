@@ -1,5 +1,5 @@
 ---
-title: "Importing Data From Tables"
+title: "Functional Enrichment Analysis"
 author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
 date: "`r Sys.Date()`"
 output:
@@ -14,11 +14,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/importing-data-from-tables.Rmd).*
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/functional-enrichment.Rmd).*
 
 <hr />
 
-Cytoscape supports the ability to link data to networks as node and edge attributes, enabling data-driven network visualization. This tutorial describes how to load expression data from a spreadsheet, and how to link it to already loaded networks.
+This tutorial will take you through a functional enrichment workflow in Cytoscape. Key aspects covered in this tutorial are:
+
+- Retrieve Networks and Pathways
+- Integrate and Explore Your Data
+- Perform Functional Enrichment Analysis
+- Functional Interpretation and Display
 
 <hr />
 
@@ -40,38 +45,12 @@ First, launch Cytoscape and keep it running whenever using RCy3. Confirm that yo
     cytoscapeVersionInfo()
 ```
 
-# Prerequisites
-In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions.
+# Setup
 
-You will also need the `httr` R package to save the remote network data:
-
-```{r}
-install.packages("httr")
-```
-
-# Loading Network
-
-- Download the network [galFiltered.sif](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif).
+Install the [Functional Enrichment Collection](http://apps.cytoscape.org/apps/functionalenrichmentcollection).
+(This installation takes time to complete. You can check the installation progress in the status bar of the Cytoscape desktop.)
 
 ```{r}
-library(httr)
-sif_url = "https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"
-GET(sif_url, write_disk(tf <- tempfile(fileext = ".sif")))
-
-#df <- read_excel(tf)
+installApp('Functional Enrichment Collection')
 ```
-
-- And load the network via
-
-```{r}
-importNetworkFromFile(file = tf)
-```
-
-# Loading Expression Data
-
-The data you are working with is from yeast, the genes **Gal1**, **Gal4**, and **Gal80** are all yeast transcription factors.
-Your expression experiments all involve some perturbation of these transcription factor genes.
-
-
-Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: **Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W**.
 
