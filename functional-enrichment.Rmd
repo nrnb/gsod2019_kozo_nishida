@@ -54,3 +54,34 @@ Install the [Functional Enrichment Collection](http://apps.cytoscape.org/apps/fu
 installApp('Functional Enrichment Collection')
 ```
 
+And install the other R packages for this tutorial
+
+```{r}
+install.packages("dplyr")
+```
+
+
+# Load TCGA data
+
+**Create the network (with no edges) with the data.**
+
+- Read [GBM-TP.all.tsv](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv).
+
+```{r}
+df <- read.table("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/GBM-TP-all.tsv", sep = '\t', header = TRUE)
+```
+
+- Import the file to create a network. We set **GeneName** column as the **node ID** column.
+
+```{r}
+library(dplyr)
+df %>% mutate(id = GeneName) -> df4createnet
+```
+
+The following code takes time to complete because the `df4createnet` is large (there are many columns).
+
+```{r}
+createNetworkFromDataFrames(df4createnet)
+```
+
+  - You’ll see no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.
