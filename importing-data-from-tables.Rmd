@@ -67,3 +67,11 @@ GET(sif_url, write_disk(tf <- tempfile(fileext = ".sif")))
 importNetworkFromFile(file = tf)
 ```
 
+# Loading Expression Data
+
+The data you are working with is from yeast, the genes **Gal1**, **Gal4**, and **Gal80** are all yeast transcription factors.
+Your expression experiments all involve some perturbation of these transcription factor genes.
+
+
+Gal1, Gal4, and Gal80 are also represented in your interaction network, where they are labeled according to yeast locus tags: **Gal1 corresponds to YBR020W, Gal4 to YPL248C, and Gal80 to YML051W**.
+
