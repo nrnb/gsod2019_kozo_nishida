@@ -231,6 +231,8 @@ logFC.table <- getTableColumns('node', "logFC")
 ```{r}
 logFC.min <- min(logFC.table, na.rm = TRUE)
 logFC.max <- max(logFC.table, na.rm = TRUE)
+print(logFC.min)
+print(logFC.max)
 ```
 ```{r}
 getVisualStyleNames()
