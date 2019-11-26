@@ -34,7 +34,7 @@ You can check the our project progress with the links below.
 - [ ] [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks/#/) with Python
 - [ ] [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks/#/) with R
 - [ ] [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/) with Python
-- [ ] [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/) with R
+- [x] [Importing Data From Tables](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) with R
 - [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with Python
 - [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with R
 - [ ] [Identifier Mapping](https://cytoscape.org/cytoscape-tutorials/protocols/identifier-mapping/#/) with Python
