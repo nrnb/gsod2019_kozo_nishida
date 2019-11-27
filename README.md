@@ -63,3 +63,8 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - [ ] [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results/#/) with Python
 - [x] [Saving Results](http://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/saving-results.html) with R [links to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/9)
 
+## There is still work to be done...
+
+- We prioritize the creation of notebooks using RCy3. Python notebooks with py2cytoscape are still almost untouched.
+- Python notebooks doesn't require natural language writing ability (Because the text is the same as that of RCy3), but you need to add the missing functions in py2cytoscape.
+- We will summarize what is missing in CyREST, RCy3, py2cytoscape, and stringApp commands(etc.). (The summary will be added somewhere in this repository.)
