@@ -30,7 +30,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - [ ] [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/) with Python
 - [ ] [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/) with R
 - [ ] [Custom Graphics and Labels](https://cytoscape.github.io/cytoscape-tutorials/protocols/custom-enhanced-graphics-style/#/) with Python
-- [x] [Custom Graphics and Labels](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Custom-Graphics.nb.html) with R
+- [x] [Custom Graphics and Labels](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Custom-Graphics.nb.html) with R (Already written by the mentor)
 
 #### Importing Networks and Tables
 
