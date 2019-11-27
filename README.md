@@ -66,7 +66,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 ## There is still work to be done...
 
 - We prioritize the creation of notebooks using RCy3. Python notebooks with py2cytoscape are still almost untouched.
-- Python notebooks doesn't require natural language writing ability (Because the text is the same as that of RCy3), but you need to add the missing functions in py2cytoscape.
+- Python notebooks doesn't require natural language writing ability (Because the text is the same as that of RCy3), but we may need to add the missing functions in py2cytoscape.
 - We will summarize what is missing in CyREST, RCy3, py2cytoscape, and stringApp commands(etc.). (The summary will be added somewhere in this repository.)
 
 ## Technical writer and mentors
