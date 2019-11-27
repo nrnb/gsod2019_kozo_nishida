@@ -2,6 +2,13 @@ This is a repository for National Resource for Network Biology (NRNB) [Google Se
 
 # Replacing GUI control tutorials to Jupyter Notebook and R Markdown
 
+## Technical writer and mentors
+### Writer
+- https://github.com/kozo2
+### Mentors
+- https://github.com/AlexanderPico
+- https://github.com/khanspers
+
 ## The work we've done
 We have written notebook documents that automates the Cytoscape tutorial workflows in http://tutorials.cytoscape.org/ with R and Python.
 You can check the our project progress and the links to the commits with the links below.
