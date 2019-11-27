@@ -2,13 +2,6 @@ This is a repository for National Resource for Network Biology (NRNB) [Google Se
 
 # Replacing GUI control tutorials to Jupyter Notebook and R Markdown
 
-## Technical writer and mentors
-### Writer
-- https://github.com/kozo2
-### Mentors
-- https://github.com/AlexanderPico
-- https://github.com/khanspers
-
 ## The work we've done
 We have written notebook documents that automates the Cytoscape tutorial workflows in http://tutorials.cytoscape.org/ with R and Python.
 You can check the our project progress and the links to the commits with the links below.
@@ -75,3 +68,10 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - We prioritize the creation of notebooks using RCy3. Python notebooks with py2cytoscape are still almost untouched.
 - Python notebooks doesn't require natural language writing ability (Because the text is the same as that of RCy3), but you need to add the missing functions in py2cytoscape.
 - We will summarize what is missing in CyREST, RCy3, py2cytoscape, and stringApp commands(etc.). (The summary will be added somewhere in this repository.)
+
+## Technical writer and mentors
+### Writer
+- https://github.com/kozo2
+### Mentors
+- https://github.com/AlexanderPico
+- https://github.com/khanspers
