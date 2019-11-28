@@ -67,7 +67,12 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - We prioritize the creation of notebooks using RCy3. Python notebooks with py2cytoscape are still almost untouched.
 - Python notebooks doesn't require natural language writing ability (Because the text is the same as that of RCy3), but we may need to add the missing functions in py2cytoscape.
-- We will summarize what is missing in CyREST, RCy3, py2cytoscape, and stringApp commands(etc.). (The summary will be added somewhere in this repository.)
+
+### Issue list (What is missing in CyREST, py2cytoscape, and Cytoscape Apps (stringApp etc.)
+
+- [ ] CyREST does not yet support the merge network function
+- [ ] py2cytoscape does not yet have RCy3's `selectNodes` equivalent
+- [ ] stringApp `retrieve enrichment` command does not yet support `Apps -> STRING Enrichment -> Retrieve functional enrichment` equivalent
 
 ## Technical writer and mentors
 ### Writer
