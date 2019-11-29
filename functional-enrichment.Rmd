@@ -115,3 +115,6 @@ createCompositeFilter("Default filter", c("filter1", "filter2"), "ANY")
 ```
 
 - No additional genes will be selected in this case (but this approach will be reused later).
+
+Only one gene shows significant average expression changes across all samples, **RPS4Y1**, a ribosomal protein that has been shown to be linked to glioblastoma, but it’s still a relatively unsatisfying result that only a single protein changes expression in glioblastoma patients.
+A closer examination might be in order...
