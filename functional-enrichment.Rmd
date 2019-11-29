@@ -78,10 +78,40 @@ library(dplyr)
 df %>% mutate(id = GeneName) -> df4createnet
 ```
 
-The following code takes time to complete because the `df4createnet` is large (there are many columns).
-
 ```{r}
 createNetworkFromDataFrames(df4createnet)
 ```
 
   - You’ll see no edges, but that’s OK. This will create a grid of 1500 unconnected nodes, where each node represents a gene.
+  - This will import all of the data in the spreadsheet and associate each row with the corresponding node.
+  - You should be able to see this in the **Table Panel**.
+
+# Find significant expression changes
+
+We’ll use the `createColumnFilter` function to find the significant overall expression changes.
+
+- In this case we’re going to add a Column Filter.
+- This is for the "Mean.log2FC" column and we set the values to be between -5 and -1.
+- This will select all genes that are significantly underexpressed on average, across all samples (only one gene should be selected).
+
+```{r}
+getTableColumnNames('node')
+```
+
+```{r}
+createColumnFilter('filter1', 'Mean.log2FC', c(-5,-1), "BETWEEN")
+```
+
+- Repeat the same process as above, but set the values to be between 1 and 5.
+
+```{r}
+createColumnFilter('filter2', 'Mean.log2FC', c(1,5), "BETWEEN")
+```
+
+- You can combine filters to create a filter that matches any one of the filters.
+
+```{r}
+createCompositeFilter("Default filter", c("filter1", "filter2"), "ANY")
+```
+
+- No additional genes will be selected in this case (but this approach will be reused later).
