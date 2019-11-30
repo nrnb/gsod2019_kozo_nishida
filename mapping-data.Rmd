@@ -107,11 +107,23 @@ print(gal80rexp.max)
 setNodeColorMapping("gal80Rexp", c(-gal80rexp.max, 0, gal80rexp.max), c('#0000FF', '#FFFFFF', '#FF0000'))
 ```
 
-```{r}
-fitContent()
-```
-
 - The network should now look like this:
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/mapping-data/NetworkBrewer.png)
 
+# Set the Default Node Color
+
+Note that the default node color of pale blue is close to the color range in the created palette.
+A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.
+
+- Here we choose a dark gray color for default node color.
+
+```{r}
+setNodeColorDefault('#A9A9A9')
+```
+
+- Zoom out on the network view to verify that a few nodes have been colored gray.
+
+```{r}
+fitContent()
+```
