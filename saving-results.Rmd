@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/cytoscape/cytoscape-automation/master/for-scripters/R/notebooks/Cancer-networks-and-data.Rmd).*
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/saving-results.Rmd).*
 
 <hr />
 
