@@ -69,14 +69,49 @@ fitContent()
 # Label the Nodes
 
 - Zoom in on the network so that node labels are visible.
-- We are going to use the COMMON name attribute to give the nodes useful names:
+- Check available column names.
 
 ```{r}
 getTableColumnNames('node')
 ```
+
+- We are going to use the COMMON name attribute to give the nodes useful names:
 
 ```{r}
 setNodeLabelMapping('COMMON')
 ```
 
 - Verify that the node labels on the network have changed to their common names.
+
+# Color the nodes
+
+- Check available column names again
+
+```{r}
+getTableColumnNames('node')
+```
+
+- Check the expression value range of **gal80Rexp**
+
+```{r}
+gal80rexp.score.table <- getTableColumns('node', "gal80Rexp")
+gal80rexp.min <- min(gal80rexp.score.table, na.rm = T)
+gal80rexp.max <- max(gal80rexp.score.table, na.rm = T)
+print(gal80rexp.min)
+print(gal80rexp.max)
+```
+
+- The following produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.
+
+```{r}
+setNodeColorMapping("gal80Rexp", c(-gal80rexp.max, 0, gal80rexp.max), c('#0000FF', '#FFFFFF', '#FF0000'))
+```
+
+```{r}
+fitContent()
+```
+
+- The network should now look like this:
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/mapping-data/NetworkBrewer.png)
+
