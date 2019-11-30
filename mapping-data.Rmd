@@ -1,0 +1,67 @@
+---
+title: "Visualizing Expression Data"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/mapping-data.Rmd).*
+
+<hr />
+
+Probably the most common use of expression data in Cytoscape is to set the visual attributes of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will walk through the steps for doing this.
+
+<hr />
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+# Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# Prerequisites
+
+The exercises require you to have certain R packages installed.
+
+```{r}
+install.packages("httr")
+```
+
+# Loading Network
+
+- Download the [demo session](http://nrnb.org/data/galFilteredSimpleData.cys) and open the demo session using
+
+```{r}
+library(httr)
+
+cys_url = "http://nrnb.org/data/galFilteredSimpleData.cys"
+GET(cys_url, write_disk(tf <- tempfile(fileext = ".cys")))
+openSession(tf)
+```
+
+- When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, we can use the `fitContent ` function.
+
+```{r}
+fitContent()
+```
