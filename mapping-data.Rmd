@@ -65,3 +65,18 @@ openSession(tf)
 ```{r}
 fitContent()
 ```
+
+# Label the Nodes
+
+- Zoom in on the network so that node labels are visible.
+- We are going to use the COMMON name attribute to give the nodes useful names:
+
+```{r}
+getTableColumnNames('node')
+```
+
+```{r}
+setNodeLabelMapping('COMMON')
+```
+
+- Verify that the node labels on the network have changed to their common names.
