@@ -46,6 +46,7 @@ The exercises require you to have certain R packages installed.
 
 ```{r}
 install.packages("httr")
+install.packages("dplyr")
 ```
 
 # Loading Network
@@ -127,3 +128,25 @@ setNodeColorDefault('#A9A9A9')
 ```{r}
 fitContent()
 ```
+
+# Set the Node Shape
+
+We imported both expression measurement values and corresponding significance values. 
+We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.
+
+The following code maps the node with gal80Rsig value less than 0.05 to RECTANGLE shape, with greater than 0.05 to ELLIPSE shape.
+
+```{r}
+gal80rsig.score.table <- getTableColumns('node', 'gal80Rsig')
+```
+
+```{r}
+getNodeShapes()
+```
+
+```{r}
+setNodeShapeMapping('SUID', row.names(gal80rsig.score.table), ifelse(gal80rsig.score.table$gal80Rsig < 0.05, "RECTANGLE", "ELLIPSE"))
+```
+
+- Verify that some nodes now have a square shape.
+
