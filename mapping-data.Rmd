@@ -137,16 +137,7 @@ We can use the significance values to change the shape of the nodes so that meas
 The following code maps the node with gal80Rsig value less than 0.05 to RECTANGLE shape, with greater than 0.05 to ELLIPSE shape.
 
 ```{r}
-gal80rsig.score.table <- getTableColumns('node', 'gal80Rsig')
-```
-
-```{r}
-getNodeShapes()
-```
-
-```{r}
-setNodeShapeMapping('SUID', row.names(gal80rsig.score.table), ifelse(gal80rsig.score.table$gal80Rsig < 0.05, "RECTANGLE", "ELLIPSE"))
+updateStyleMapping("default", mapVisualProperty('node shape', 'gal80Rsig', 'c', c(0, 0.05, 1.00), c('rectangle', 'rectangle', 'ellipse')))
 ```
 
 - Verify that some nodes now have a square shape.
-
