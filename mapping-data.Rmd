@@ -141,3 +141,31 @@ updateStyleMapping("default", mapVisualProperty('node shape', 'gal80Rsig', 'c', 
 ```
 
 - Verify that some nodes now have a square shape.
+
+# Fun with Charts
+
+In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node.
+For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?
+
+- To reset things a little, remove the mapping for Fill Color by
+
+```{r}
+getVisualPropertyNames()
+```
+
+
+```{r}
+deleteStyleMapping("default", "NODE_FILL_COLOR")
+```
+
+- Now change the default value to a lighter shade of grey so we can see our chart.
+
+```{r}
+setNodeColorDefault('#D3D3D3')
+```
+
+- The following indicates that we're going to use the data from these three columns expression data (gal1RGexp, gal4RGexp, gal80Rexp) to create bar chart.
+
+```{r}
+setNodeCustomBarChart(c("gal1RGexp", "gal4RGexp", "gal80Rexp"))
+```
