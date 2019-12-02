@@ -46,7 +46,6 @@ The exercises require you to have certain R packages installed.
 
 ```{r}
 install.packages("httr")
-install.packages("dplyr")
 ```
 
 # Loading Network
