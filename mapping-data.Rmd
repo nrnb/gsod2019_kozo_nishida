@@ -20,6 +20,10 @@ knitr::opts_chunk$set(
 
 Probably the most common use of expression data in Cytoscape is to set the visual attributes of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will walk through the steps for doing this.
 
+<center>
+![](https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/1599px-GalWithCharts.png)
+</center>
+
 <hr />
 
 # Installation
@@ -46,21 +50,20 @@ The exercises require you to have certain R packages installed.
 
 ```{r}
 install.packages("httr")
+library(httr)
 ```
 
 # Loading Network
 
-- Download the [demo session](http://nrnb.org/data/galFilteredSimpleData.cys) and open the demo session using
+- Download the [demo session](http://nrnb.org/data/galFilteredSimpleData.cys) and open the demo session using:
 
 ```{r}
-library(httr)
-
 cys_url = "http://nrnb.org/data/galFilteredSimpleData.cys"
 GET(cys_url, write_disk(tf <- tempfile(fileext = ".cys")))
 openSession(tf)
 ```
 
-- When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, we can use the `fitContent ` function.
+- When the network first opens, the entire network is not visible because of the default zoom factor used. To see the whole network, we can use the `fitContent ` function:
 
 ```{r}
 fitContent()
@@ -85,13 +88,13 @@ setNodeLabelMapping('COMMON')
 
 # Color the nodes
 
-- Check available column names again
+- Check available column names again:
 
 ```{r}
 getTableColumnNames('node')
 ```
 
-- Check the expression value range of **gal80Rexp**
+- Check the expression value range of **gal80Rexp**:
 
 ```{r}
 gal80rexp.score.table <- getTableColumns('node', "gal80Rexp")
@@ -116,13 +119,13 @@ setNodeColorMapping("gal80Rexp", c(-gal80rexp.max, 0, gal80rexp.max), c('#0000FF
 Note that the default node color of pale blue is close to the color range in the created palette.
 A useful trick is to choose a color outside this spectrum to distinguish nodes with no defined expression value and those with slight repression.
 
-- Here we choose a dark gray color for default node color.
+- Here we choose a dark gray color for default node color:
 
 ```{r}
 setNodeColorDefault('#A9A9A9')
 ```
 
-- Zoom out on the network view to verify that a few nodes have been colored gray.
+- Zoom out on the network view to verify that a few nodes have been colored gray:
 
 ```{r}
 fitContent()
@@ -136,6 +139,14 @@ We can use the significance values to change the shape of the nodes so that meas
 The following code maps the node with gal80Rsig value less than 0.05 to RECTANGLE shape, with greater than 0.05 to ELLIPSE shape.
 
 ```{r}
+gal80rsig.score.table <- getTableColumns('node', "gal80Rsig")
+gal80rsig.min <- min(gal80rsig.score.table, na.rm = T)
+gal80rsig.max <- max(gal80rsig.score.table, na.rm = T)
+print(gal80rsig.min)
+print(gal80rsig.max)
+```
+
+```{r}
 updateStyleMapping("default", mapVisualProperty('node shape', 'gal80Rsig', 'c', c(0, 0.05, 1.00), c('rectangle', 'rectangle', 'ellipse')))
 ```
 
@@ -146,18 +157,17 @@ updateStyleMapping("default", mapVisualProperty('node shape', 'gal80Rsig', 'c', 
 In addition to coloring the nodes, Cytoscape also provides the ability to draw charts and graphs on each node.
 For example, suppose we wanted to display a bar chart showing all of the expression values on each of our nodes?
 
-- To reset things a little, remove the mapping for Fill Color by
+- To reset things a little, remove the mapping for Fill Color. First, let's find out the property name for Fill Color:
 
 ```{r}
 getVisualPropertyNames()
 ```
 
-
 ```{r}
 deleteStyleMapping("default", "NODE_FILL_COLOR")
 ```
 
-- Now change the default value to a lighter shade of grey so we can see our chart.
+- Now change the default value to a lighter shade of grey so we can see our chart:
 
 ```{r}
 setNodeColorDefault('#D3D3D3')
@@ -166,5 +176,5 @@ setNodeColorDefault('#D3D3D3')
 - The following indicates that we're going to use the data from these three columns expression data (gal1RGexp, gal4RGexp, gal80Rexp) to create bar chart.
 
 ```{r}
-setNodeCustomBarChart(c("gal1RGexp", "gal4RGexp", "gal80Rexp"))
+setNodeCustomBarChart(c("gal1RGexp", "gal4RGexp", "gal80Rexp"), "HEAT_STRIPS")
 ```
