@@ -25,6 +25,10 @@ This protocol describes a network analysis workflow in Cytoscape for a set of di
 - Integration and visualization of experimental data
 - Exporting network visualizations
 
+<center>
+![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-ovarian-drivers.png)
+</center>
+
 <hr />
 
 # Installation
@@ -45,7 +49,7 @@ First, launch Cytoscape and keep it running whenever using RCy3. Confirm that yo
     cytoscapeVersionInfo()
 ```
 
-# Setup
+# Prerequisites
 
 If you haven't already, install the [STRINGapp](http://apps.cytoscape.org/apps/stringapp)
 
@@ -81,20 +85,22 @@ To identify a relevant network, we will query the STRING database in two differe
 
 ## STRING Protein Query: Up-regulated genes
 
-- Read the file containing the list of up-regulated genes, TCGA-Ovarian-MesenvsImmuno_UP.txt.
+- Load the file containing the list of up-regulated genes, TCGA-Ovarian-MesenvsImmuno_UP.txt:
 
 ```{r}
 df <- read.table("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_UP.txt")
 ```
 
-- Run this code chunk to run **STRING protein query** with confidence (score) cutoff of 0.4.
+- We will use the identifiers in the first column of this datafile to run a **STRING protein query**, with confidence (score) cutoff of 0.4:
 
 ```{r}
 string.cmd = paste('string protein query query="', paste(df$V1, collapse = '\n'), '" cutoff=0.4  species="Homo sapiens"', sep = "")
 commandsRun(string.cmd)
 ```
 
-- The resulting network will load automatically.
+The resulting network will load automatically.
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-up.png)
 
 The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.
 
@@ -119,7 +125,7 @@ Note that there are several other options, including:
 - [BiNGO](http://apps.cytoscape.org/apps/bingo): GO overrepresentation analysis on networks
 - [EnrichmentMap](https://cytoscape.org/cytoscape-tutorials/protocols/enrichmentmap-pipeline/): Visualize the results of gene-set enrichment as a network
 
-# STRING Enrichment
+## STRING Enrichment
 
 The STRING app has built-in enrichment analysis functionality, which includes enrichment for GO Process, GO Component, GO Function, InterPro, KEGG Pathways, and PFAM.
 
@@ -137,11 +143,9 @@ The features are all available at the top of the **STRING Enrichment** tab.
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-enrichment-chart.png)
 
-# STRING Protein Query: Down-regulated genes
+## STRING Protein Query: Down-regulated genes
 
-Repeat the network search, enrichment analysis and visualization for the set of down-regulated genes:
-
-- Query STRING protein with the list of symbols in [TCGA-Ovarian-MesenvsImmuno_DOWN.txt](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt).
+- Repeat the network search, enrichment analysis and visualization for the set of down-regulated genes by using the first column of [TCGA-Ovarian-MesenvsImmuno_DOWN.txt](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt):
 
 ```{r}
 df <- read.table("https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_DOWN.txt")
@@ -149,14 +153,15 @@ string.cmd = paste('string protein query query="', paste(df$V1, collapse = '\n')
 commandsRun(string.cmd)
 ```
 
-- Perform STRING Enrichment analysis on the resulting network.
-- Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To distinguish between the visualizations of up- and down-regulated results, pick a different color palette under Change Color Palette under Settings.
+Now we can perform STRING Enrichment analysis on the resulting network.
+
+Filter the analysis results for non-redundant GO Process terms only, add split donut charts. To distinguish between the visualizations of up- and down-regulated results, pick a different color palette under Change Color Palette under Settings.
 
 _Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, change the split donut to a Pie Chart in **Settings** and then try out some of the layouts (see Layout menu), you can end up with network views like this..._
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-de-down.png)
 
-# STRING Disease Query
+## STRING Disease Query
 
 Now, we will query the **STRING disease** database to retrieve a network of ovarian cancer associated genes, completely independent of our dataset.
 
@@ -189,13 +194,13 @@ Here we set **Human** as species, **HGNC** as **Map from**, and **Entrez Gene** 
 head(mapped.cols)
 ```
 
-- `mapped.cols` displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well. You will notice the new column `Entrez Gene` in the Node Table.
+`mapped.cols` displays a report of how many identifiers were mapped. Make note of this information as it impacts all down-stream analysis; If the mapping was unsuccessful, downstream analysis will be as well. You will notice the new column `Entrez Gene` in the Node Table.
 
 ```{r}
 tail(getTableColumnNames('node'))
 ```
 
-- Next, we can load the data (a local copy of [TCGA-Ovarian-MesenvsImmuno_data.csv](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv)).
+Next, we can load the data (a local copy of [TCGA-Ovarian-MesenvsImmuno_data.csv](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv)):
 
 ```{r}
 df <- read.csv("https://cytoscape.org/cytoscape-tutorials/protocols/data/TCGA-Ovarian-MesenvsImmuno_data.csv")
@@ -205,7 +210,9 @@ df <- read.csv("https://cytoscape.org/cytoscape-tutorials/protocols/data/TCGA-Ov
 head(df)
 ```
 
-And integrate the data with the network (node) table in Cytoscape.
+We are now ready to integrate the data with the network (node) table in Cytoscape.
+For importing the data we will use the following mapping: 
+
 - **Key Column for Network** should be **Entrez Gene**.
 - **Gene** should be the key of the data(`df`).
 
@@ -259,13 +266,13 @@ We can add information about these genes to the network visualization, by changi
 Three of the most important drivers are **TP53**, **BRCA1** and **BRCA2**.
 We will add a thicker, clored border for these genes in the network.
 
-- Select all three driver genes by
+- Select all three driver genes by:
 
 ```{r}
 selectNodes(c("TP53", "BRCA1", "BRCA2"), by.col = "display name")
 ```
 
-- Add a style bypass for node **Border Width** (5) and node **Border Paint** (bright pink). You can create a style bypass by
+- Add a style bypass for node **Border Width** (5) and node **Border Paint** (bright pink):
 
 ```{r}
 setNodeBorderWidthBypass(getSelectedNodes(), 5)
