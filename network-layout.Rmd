@@ -93,3 +93,15 @@ These require a license agreement.
 
 Some Cytoscape apps may add additional layout algorithms to the Layout menu.
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/LayoutMenu.png)
+
+# Examples of Layout Algorithms
+
+Similarly to Prefuse Force Directed, the **Edge-weighted spring-embedded** layout is also based on a “force-directed” paradigm as implemented by Kamada and Kawai (1988).
+Network nodes are treated like physical objects that repel each other, such as electrons.
+The connections between nodes are treated like metal springs attached to the pair of nodes.
+These springs repel or attract their end points according to a force function.
+The layout algorithm sets the positions of the nodes in a way that minimizes the sum of forces in the network.
+
+```{r}
+layoutNetwork('kamada-kawai')
+```
