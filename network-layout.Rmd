@@ -105,3 +105,15 @@ The layout algorithm sets the positions of the nodes in a way that minimizes the
 ```{r}
 layoutNetwork('kamada-kawai')
 ```
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/edgeweighted.png)
+
+The **circular** algorithm produces layouts that emphasize group and tree structures within a network.
+It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles.
+The circles themselves are arranged in a radial tree layout fashion.
+
+```{r}
+layoutNetwork('circular')
+```
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/circular.png)
