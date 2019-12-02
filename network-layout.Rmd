@@ -68,3 +68,7 @@ fitContent()
 
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/prefuse.png)
 
+The network layout used in this session file is the **Prefuse Force Directed Layout**.
+This layout is based on the algorithm implemented as part of the [prefuse toolkit](http://www.prefuse.org/).
+The algorithm is very fast and with the right parameters can provide a very visually pleasing layout.
+The Force Directed Layout can also use a numeric edge attribute as a weight for the length of the spring.
