@@ -72,3 +72,24 @@ The network layout used in this session file is the **Prefuse Force Directed Lay
 This layout is based on the algorithm implemented as part of the [prefuse toolkit](http://www.prefuse.org/).
 The algorithm is very fast and with the right parameters can provide a very visually pleasing layout.
 The Force Directed Layout can also use a numeric edge attribute as a weight for the length of the spring.
+
+# Layout Menu
+
+Layouts are available from
+
+```{r}
+getLayoutNames()
+```
+
+In addition to the built-in layout algorithms available by default, a set of yFiles layouts are available for installation.
+(But yFiles does not support Cytoscape Automation and cannot be controlled from RCy3.)
+
+```{r}
+installApp('yfileslayoutalgorithms')
+```
+
+These require a license agreement.
+
+
+Some Cytoscape apps may add additional layout algorithms to the Layout menu.
+![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/LayoutMenu.png)
