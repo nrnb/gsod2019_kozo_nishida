@@ -1,0 +1,70 @@
+---
+title: "Network Layout"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/network-layout.Rmd).*
+
+<hr />
+
+Cytoscape includes many automatic layout algorithms, for organizing the network visually. All available layout algorithms are listed in the **Layout** menu, including any layout aglorithms loaded by apps. This tutorial will describe how to apply a layout to your network, give a few examples of commonly used layout algorithms, and describe how layout algorithm parameters can be adjusted.
+
+<hr />
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+# Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# Prerequisites
+
+The exercises require you to have certain R packages installed.
+
+```{r}
+install.packages("httr")
+```
+
+# Applying a Layout Algorithm
+
+- Load the [galFiltered.cys](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sys) session file.
+
+```{r}
+library(httr)
+
+cys_url = "https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.cys"
+GET(cys_url, write_disk(tf <- tempfile(fileext = ".cys")))
+openSession(tf)
+```
+
+- To see the whole network,
+
+```{r}
+fitContent()
+```
+
+![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/prefuse.png)
+
