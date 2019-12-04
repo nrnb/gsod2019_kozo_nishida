@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 Probably the most common use of expression data in Cytoscape is to set the visual attributes of the nodes in a network according to expression data. This creates a powerful visualization, portraying functional relation and experimental response at the same time. Here, we will walk through the steps for doing this.
 
 <center>
-![](https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/1599px-GalWithCharts.png)
+![](images/mapping-data-final.png)
 </center>
 
 <hr />
@@ -88,13 +88,7 @@ setNodeLabelMapping('COMMON')
 
 # Color the nodes
 
-- Check available column names again:
-
-```{r}
-getTableColumnNames('node')
-```
-
-- Check the expression value range of **gal80Rexp**:
+- As we saw from the "getTableColumnNames" command, there is a column named **gal80Rexp**, which contains expression data. Let's check the expression value range of the data in this column:
 
 ```{r}
 gal80rexp.score.table <- getTableColumns('node', "gal80Rexp")
@@ -104,7 +98,7 @@ print(gal80rexp.min)
 print(gal80rexp.max)
 ```
 
-- The following produces a default gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.
+- The following produces a default gradient ranging from blue to red for **gal80Rexp** expression values. Notice that the nodes in the network change color.
 
 ```{r}
 setNodeColorMapping("gal80Rexp", c(-gal80rexp.max, 0, gal80rexp.max), c('#0000FF', '#FFFFFF', '#FF0000'))
@@ -112,7 +106,7 @@ setNodeColorMapping("gal80Rexp", c(-gal80rexp.max, 0, gal80rexp.max), c('#0000FF
 
 - The network should now look like this:
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/mapping-data/NetworkBrewer.png)
+![](images/NetworkBrewer.png)
 
 # Set the Default Node Color
 
@@ -131,12 +125,13 @@ setNodeColorDefault('#A9A9A9')
 fitContent()
 ```
 
-# Set the Node Shape
+# Set the Node Border
 
 We imported both expression measurement values and corresponding significance values. 
-We can use the significance values to change the shape of the nodes so that measurements we have confidence in appear as squares while potentially bad measurements appear as circles.
+We can use the significance values to change the border of nodes to highlight measurements we have confidence in.
 
-The following code maps the node with gal80Rsig value less than 0.05 to RECTANGLE shape, with greater than 0.05 to ELLIPSE shape.
+Let's create a thicker node border for nodes with **gal80Rsig** value less than 0.05.
+First, we need to get the min and max of values for **gal80Rsig**
 
 ```{r}
 gal80rsig.score.table <- getTableColumns('node', "gal80Rsig")
@@ -147,10 +142,14 @@ print(gal80rsig.max)
 ```
 
 ```{r}
-updateStyleMapping("default", mapVisualProperty('node shape', 'gal80Rsig', 'c', c(0, 0.05, 1.00), c('rectangle', 'rectangle', 'ellipse')))
+setNodeBorderWidthMapping('gal80Rsig', c(gal80rsig.min, "0.0499999", "0.05", gal80rsig.max), c('10',"10",'0', '0'))
 ```
 
-- Verify that some nodes now have a square shape.
+The node border now indicates significance, but since the default node border color is a pale grey, it is not very visible. We can change the default border color to a darker grey:
+
+```{r}
+setNodeBorderColorDefault('#666666')
+```
 
 # Fun with Charts
 
@@ -178,3 +177,8 @@ setNodeColorDefault('#D3D3D3')
 ```{r}
 setNodeCustomBarChart(c("gal1RGexp", "gal4RGexp", "gal80Rexp"), "HEAT_STRIPS")
 ```
+
+The network now shows heat strips for the three expression values, with colors chosen from a default Brewer palette. 
+
+![](images/mapping-data-final.png)
+
