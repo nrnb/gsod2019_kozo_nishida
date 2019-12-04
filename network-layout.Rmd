@@ -46,6 +46,7 @@ The exercises require you to have certain R packages installed.
 
 ```{r}
 install.packages("httr")
+library(httr)
 ```
 
 # Applying a Layout Algorithm
@@ -53,20 +54,16 @@ install.packages("httr")
 - Load the [galFiltered.cys](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sys) session file.
 
 ```{r}
-library(httr)
-
-cys_url = "https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.cys"
-GET(cys_url, write_disk(tf <- tempfile(fileext = ".cys")))
-openSession(tf)
+openSession()
 ```
 
-- To see the whole network,
+- Use "fitContent" to see the whole network:
 
 ```{r}
 fitContent()
 ```
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/prefuse.png)
+![](images/prefuse.png)
 
 The network layout used in this session file is the **Prefuse Force Directed Layout**.
 This layout is based on the algorithm implemented as part of the [prefuse toolkit](http://www.prefuse.org/).
@@ -75,11 +72,13 @@ The Force Directed Layout can also use a numeric edge attribute as a weight for 
 
 # Layout Menu
 
-Layouts are available from
+Available layouts can be found from:
 
 ```{r}
 getLayoutNames()
 ```
+
+Note that some Cytoscape apps may add additional layout algorithms to the Layout menu so the listing of available layouts may be influenced by which apps you have loaded.
 
 In addition to the built-in layout algorithms available by default, a set of yFiles layouts are available for installation.
 (But yFiles does not support Cytoscape Automation and cannot be controlled from RCy3.)
@@ -89,10 +88,6 @@ installApp('yfileslayoutalgorithms')
 ```
 
 These require a license agreement.
-
-
-Some Cytoscape apps may add additional layout algorithms to the Layout menu.
-![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/LayoutMenu.png)
 
 # Examples of Layout Algorithms
 
@@ -106,7 +101,7 @@ The layout algorithm sets the positions of the nodes in a way that minimizes the
 layoutNetwork('kamada-kawai')
 ```
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/edgeweighted.png)
+![](images/edgeweighted.png)
 
 The **circular** algorithm produces layouts that emphasize group and tree structures within a network.
 It partitions the network by analyzing its connectivity structure, and arranges the partitions as separate circles.
@@ -116,4 +111,4 @@ The circles themselves are arranged in a radial tree layout fashion.
 layoutNetwork('circular')
 ```
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/network-layout/circular.png)
+![](images/circular.png)
