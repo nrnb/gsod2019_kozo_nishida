@@ -1,0 +1,2 @@
+#!/bin/bash
+xvfb-run bash cytoscape-unix-3.7.2/cytoscape.sh
