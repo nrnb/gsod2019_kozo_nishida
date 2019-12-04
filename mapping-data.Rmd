@@ -55,7 +55,7 @@ library(httr)
 
 # Loading Network
 
-- Download the [demo session](http://nrnb.org/data/galFilteredSimpleData.cys) and open the demo session using:
+- The demo session is available [here](http://nrnb.org/data/galFilteredSimpleData.cys) and can be opened using:
 
 ```{r}
 cys_url = "http://nrnb.org/data/galFilteredSimpleData.cys"

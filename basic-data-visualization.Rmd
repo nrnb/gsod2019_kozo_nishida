@@ -28,7 +28,7 @@ This tutorial presents a scenario of how expression and network data can be comb
 In addition to the RCy3 package, you will need the latest version of Cytoscape, which can be downloaded from http://www.cytoscape.org/download.php. Simply follow the installation instructions.
 
 <center>
-![](https://cytoscape.github.io/cytoscape-tutorials/protocols/basic-data-visualization/FinalNetwork.png){width=60%}
+![](images/FinalNetwork.png){width=60%}
 </center>
 
 <hr />
@@ -66,11 +66,7 @@ openSession(file.location = "./BasicDataVizDemo.cys")
 
 Now you should see a network like this.
 
-```{r}
-exportImage("./images/basic-data-vizualization/BasicDataVizDemo.png")
-```
-
-![](./images/basic-data-vizualization/BasicDataVizDemo.png)
+![](images/BasicDataVizDemo.png)
 
 # Visualizing Expression Data on Networks
 
@@ -80,7 +76,7 @@ The data used in this example is from yeast, and represents an experiment of per
 
 For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the Node Table:
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/Galbrowse3.png)
+![](images/Galbrowse3.png)
 
 - You can select nodes in the network by 
 
@@ -90,7 +86,7 @@ selectNodes(c("YDL194W", "YLR345W"), by.col = "name")
 
 - Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).
 
-![](./images/basic-data-vizualization/SelectNodes.png)
+![](images/SelectNodes.png)
 
 We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:
 
@@ -111,7 +107,7 @@ setNodeColorMapping('gal80Rexp', c(gal80Rexp.min, gal80Rexp.center, gal80Rexp.ma
 
 - This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.
 
-![](./images/basic-data-vizualization/SetNodeFillColor.png)
+![](images/SetNodeFillColor.png)
 
 ## Set Default Node Color
 
@@ -123,7 +119,7 @@ We can set default node color to dark gray color:
 setNodeColorDefault('#666666')
 ```
 
-![](./images/basic-data-vizualization/SetDefaultNodeColor.png)
+![](images/SetDefaultNodeColor.png)
 
 ## Set Node Border Width
 
@@ -136,7 +132,7 @@ gal80Rsig.max <- max(gal80Rsig.score.table, na.rm = T)
 setNodeBorderWidthMapping('gal80Rsig', c(gal80Rsig.min, gal80Rsig.max), c(10,30))
 ```
 This creates the following mapping for `gal80Rsig`:
-![](./images/basic-data-vizualization/SetNodeBorderWidth.png)
+![](images/SetNodeBorderWidth.png)
 
 # Layouts
 An important aspect of network visualization is the layout, meaning the positioning of nodes and edges. Our network had a preset layout in the original file you imported, but this can be changed.
@@ -147,11 +143,7 @@ An important aspect of network visualization is the layout, meaning the position
 layoutNetwork("degree-circle")
 ```
 
-```{r}
-exportImage("./images/basic-data-vizualization/degree-circle.png")
-```
-
-![](./images/basic-data-vizualization/degree-circle.png)
+![](images/degree-circle.png)
 
   In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o'clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.
 
@@ -161,11 +153,7 @@ For this network, a degree-sorted circle layout may not be the most effective. I
 layoutNetwork("force-directed")
 ```
 
-```{r}
-exportImage("./images/basic-data-vizualization/force-directed.png")
-```
-
-![](./images/basic-data-vizualization/force-directed.png)
+![](images/force-directed.png)
 
 Cytoscape supports many different layout algorithms, described in detail in the [Cytoscape manual](http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html?highlight=layout#automatic-layout-algorithms).
 
@@ -182,11 +170,7 @@ createColumnFilter('myFilter', 'gal80Rexp', 2.00, "GREATER_THAN")
 
 You should now see only a few nodes in the network selected (highlighted yellow).
 
-```{r}
-exportImage("./images/basic-data-vizualization/column-filter.png")
-```
-
-![](./images/basic-data-vizualization/column-filter.png)
+![](images/column-filter.png)
 
 ## Expand Selection and Create New Network
 
@@ -198,11 +182,7 @@ Select the first neighbors of selected nodes:
 selectFirstNeighbors()
 ```
 
-```{r}
-exportImage("./images/basic-data-vizualization/first-neighbors.png")
-```
-
-![](./images/basic-data-vizualization/first-neighbors.png)
+![](images/first-neighbors.png)
 
 Digging into the biology of this network, it turns out that GAL4 is repressed by GAL80. Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are pale blue with thin borders. These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes. GAL4 interacts with GAL80, which shows a significant level of repression: it is medium blue with a thicker border.
 
