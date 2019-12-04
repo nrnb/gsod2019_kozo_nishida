@@ -2,6 +2,20 @@ This is a repository for National Resource for Network Biology (NRNB) [Google Se
 
 # Replacing GUI control tutorials to Jupyter Notebook and R Markdown
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master)
+
+## How to use the R Markdowns in this repository (without setting up the local environment)
+
+1. Launch a Jupyter server by clicking [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master) (It may take some time to reach the Jupyter screen.)
+2. Click `New ▼` => `RStudio` at the top right of the Jupyter screen. (RStudio should start up.)
+3. Run the following commands in the RStudio `Terminal` tab. These commands launch Cytoscape Desktop in the background. The Cytoscape window is never visible.
+  ```
+  wget https://github.com/cytoscape/cytoscape/releases/download/3.7.2/cytoscape-3.7.2.tar.gz
+  tar xf cytoscape-3.7.2.tar.gz
+  xvfb-run bash cytoscape-unix-3.7.2/cytoscape.sh
+  ```
+4. Open Rmd file from the RStudio `Files` tab and run it.
+
 ## The work we've done
 We have written notebook documents that automates the Cytoscape tutorial workflows in http://tutorials.cytoscape.org/ with R and Python.
 You can check the our project progress and the links to the commits with the links below.
