@@ -100,7 +100,7 @@ commandsRun(string.cmd)
 
 The resulting network will load automatically.
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-up.png)
+![](images/string-up.png)
 
 The resulting network contains up-regulated genes recognized by STRING, and interactions between them with an evidence score of 0.4 or greater.
 
@@ -132,16 +132,16 @@ The STRING app has built-in enrichment analysis functionality, which includes en
 - With the STRING results network selected, go to **Apps → STRING Enrichment → Retrieve functional enrichment**.
 - When the enrichment analysis is complete, a new tab titled **STRING Enrichment** will open in the **Table Panel**.
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-enrichment.png)
+![](images/string-enrichment.png)
 
 The STRING app includes several options for filtering and displaying the enrichment results.
 The features are all available at the top of the **STRING Enrichment** tab.
 
-- We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/FilterIcon.png). Select **GO Process** and check the **Remove redundant terms** check-box. Then click OK.
-- Next, we will add a split donut chart to the nodes representing the top terms by clicking on ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/ChartIcon.png).
-- Explore custom setting via ![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/SettingsIcon.png) in the top right of the STRING enrichment tab.
+- We are going to filter the table to only show GO Process. At the top left of the STRING enrichment tab, click the filter icon ![](images/FilterIcon.png). Select **GO Process** and check the **Remove redundant terms** check-box. Then click OK.
+- Next, we will add a split donut chart to the nodes representing the top terms by clicking on ![](images/ChartIcon.png).
+- Explore custom setting via ![](images/SettingsIcon.png) in the top right of the STRING enrichment tab.
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-enrichment-chart.png)
+![](images/string-enrichment-chart.png)
 
 ## STRING Protein Query: Down-regulated genes
 
@@ -159,7 +159,7 @@ Filter the analysis results for non-redundant GO Process terms only, add split d
 
 _Pro-tip: If you remove the Fill Color mapping from the Style Panel (right-click > Edit > Remove...), set the default to light gray, change the split donut to a Pie Chart in **Settings** and then try out some of the layouts (see Layout menu), you can end up with network views like this..._
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-de-down.png)
+![](images/string-de-down.png)
 
 ## STRING Disease Query
 
@@ -259,7 +259,7 @@ setNodeColorDefault('#D3D3D3', style.name = "BioPAX")
 _Pro-tip: If you apply the **yFiles Organic** layout, you can end up with network views like this..._
 ([**yFiles** Layout Algorithms App](http://apps.cytoscape.org/apps/yfileslayoutalgorithms) does not support any automation. Please select it in Cytoscape Desktop menubar.)
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-ovarian-styled.png)
+![](images/string-ovarian-styled.png)
 
 The TCGA found several genes that were commonly mutated in ovarian cancer, so called "cancer drivers".
 We can add information about these genes to the network visualization, by changing the visual style of these nodes.
@@ -281,7 +281,7 @@ setNodeBorderColorBypass(getSelectedNodes(), '#FF007F')
 
 The network will now look like this:
 
-![](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/string-ovarian-drivers.png)
+![](images/string-ovarian-drivers.png)
 
 # Other Analysis Options
 
