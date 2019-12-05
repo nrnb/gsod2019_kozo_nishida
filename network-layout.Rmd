@@ -112,3 +112,12 @@ layoutNetwork('circular')
 ```
 
 ![](images/circular.png)
+
+The **Compound Spring Embedder (CoSE) layout** is based on the traditional force-directed layout algorithm with extensions to handle multi-level nesting (compound nodes), edges between nodes of arbitrary nesting levels and varying node sizes.
+It is the suggested Cytoscape layout for compound graphs, although it also works very well with noncompound graphs.
+
+```{r}
+layoutNetwork('cose')
+```
+
+![](images/cose.png) ![](images/cose_gal.png)
