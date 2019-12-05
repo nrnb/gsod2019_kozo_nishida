@@ -84,7 +84,7 @@ In addition to the built-in layout algorithms available by default, a set of yFi
 (But yFiles does not support Cytoscape Automation and cannot be controlled from RCy3.)
 
 ```{r}
-installApp('yfileslayoutalgorithms')
+installApp('yFiles Layout Algorithms')
 ```
 
 These require a license agreement.
