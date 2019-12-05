@@ -55,7 +55,7 @@ If you haven't already, install the [STRINGapp](http://apps.cytoscape.org/apps/s
 
 ```{r}
 installApp('stringApp')
-installApp('yfileslayoutalgorithms')
+installApp('yFiles Layout Algorithms')
 ```
 
 # Background

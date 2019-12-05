@@ -57,7 +57,7 @@ The exercises require you to have certain Cytoscape apps and R packages installe
 
 ```{r}
 installApp('stringApp')
-installApp('yfileslayoutalgorithms')
+installApp('yFiles Layout Algorithms')
 installApp('enhancedGraphics')
 installApp('clusterMaker2')
 install.packages("httr")
