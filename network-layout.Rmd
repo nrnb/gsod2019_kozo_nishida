@@ -121,3 +121,17 @@ layoutNetwork('cose')
 ```
 
 ![](images/cose.png) ![](images/cose_gal.png)
+
+# Layout Settings
+
+- To change the settings for a particular algorithm, first you need to check the relevant set of parameters. The following code chunk will display the parameter names.
+
+```{r}
+getLayoutPropertyNames('cose')
+```
+
+- To change the settings for a particular algorithm, run
+
+```{r}
+setLayoutProperties('cose', list(incremental='false', idealEdgeLength=50, springStrength=50, repulsionStrength=50, gravityStrength=50, compoundGravityStrength=50, gravityRange=50, compoundGravityRange=50, smartEdgeLengthCalc='true', smartRepulsionRangeCalc='true'))
+```
