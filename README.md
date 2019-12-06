@@ -92,3 +92,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 ### Mentors
 - https://github.com/AlexanderPico
 - https://github.com/khanspers
+
+# About my achievements during Season of Docs
+
+https://github.com/nrnb/gsod2019_kozo_nishida/wiki/My-achievements-during-Season-of-Docs-(Q-and-A-style)
