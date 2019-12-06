@@ -50,9 +50,50 @@ First, launch Cytoscape and keep it running whenever using RCy3. Confirm that yo
 
 # Prerequisites
 
-The exercises require you to have certain Cytoscape apps installed.
+The exercises require you to have certain Cytoscape apps and R packages installed.
 
 ```{r}
 installApp('stringApp')
 installApp('WikiPathways')
+if(!"ndexr" %in% installed.packages()){
+    install.packages("BiocManager")
+    BiocManager::install("ndexr")
+}
 ```
+
+# Networks from Public Data
+
+Cytoscape includes a Network Search tool for easy import of public network data.
+In addition to core apps that are included with your Cytoscape installation (NDEx and PSICQUIC), the resources listed here will depend on which apps you have installed.
+
+```{r}
+getInstalledApps()
+```
+
+# NDEx
+
+The [NDEx Project](http://www.ndexbio.org/) provides an open-source framework where scientists and organizations can share, store, manipulate, and publish biological network knowledge.
+
+- To search NDEx run the following code chunk. Here, we use "TP53 AND BARD1" as our search terms.
+
+```{r}
+library(ndexr)
+ndexcon <- ndex_connect()
+networks <- ndex_find_networks(ndexcon, "TP53 AND BARD1")
+print(networks[,c("name","externalId","nodeCount","edgeCount")])
+```
+
+- We can work with this list. Let’s use the first hit. **Note: you are going to get different hits as this database changes over time, so proceed with any hit you like.**
+
+```{r}
+networkId = networks$externalId[1]
+network = ndex_get_network(ndexcon, networkId)
+print(network)
+```
+
+- To import the network into Cytoscape, run the following code chunk.
+
+```{r}
+importNetworkFromNDEx(networkId)
+```
+
