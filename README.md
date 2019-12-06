@@ -4,14 +4,15 @@ This is a repository for National Resource for Network Biology (NRNB) [Google Se
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=rstudio) (for R)
 
-## How to use the R Markdowns in this repository (without setting up the local environment)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=lab/tree) (for Python)
 
-1. Launch a RStudio server by clicking [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=rstudio) (It may take some time to reach the RStudio screen.)
-2. Run the following commands in the RStudio `Terminal` tab. These commands launch Cytoscape Desktop in the background. The Cytoscape window is never visible.
+## How to use the Binder environments
+- Launch RStudio or JupyterLab server by clicking the above Binder badges.
+- Run the following command in the RStudio `Terminal` tab or JupyterLab `Terminal`. This command launches Cytoscape Desktop in the background. The Cytoscape window is never visible.
   ```
   xvfb-run bash ~/cytoscape-unix-3.7.2/cytoscape.sh
   ```
-4. Open Rmd file from the RStudio `Files` tab and run it.
+- Open .Rmd or .ipynb file with RStudio or JupyterLab and run the code chunks or cells. Feel free to modify any of the scripts and run commands directly, but note that your changes will *not* be saved. *Binder only provides a temporary space to try out R and Python automation with Cytoscape.*
 
 ## The work we've done
 We have written notebook documents that automates the Cytoscape tutorial workflows in http://tutorials.cytoscape.org/ with R and Python.
@@ -39,7 +40,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - [ ] [Visualizing Data](https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/) with Python
 - [x] [Visualizing Data](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/mapping-data.html) with R [links to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/12)
 - [ ] [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/) with Python
-- [ ] [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/) with R [links to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
+- [x] [Network Layout](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/network-layout.html) with R [links to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
 - [ ] [Custom Graphics and Labels](https://cytoscape.github.io/cytoscape-tutorials/protocols/custom-enhanced-graphics-style/#/) with Python
 - [x] [Custom Graphics and Labels](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Custom-Graphics.nb.html) with R (Already written by the mentor)
 
@@ -92,3 +93,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 ### Mentors
 - https://github.com/AlexanderPico
 - https://github.com/khanspers
+
+# About my achievements during Season of Docs
+
+https://github.com/nrnb/gsod2019_kozo_nishida/wiki/My-achievements-during-Season-of-Docs-(Q-and-A-style)
