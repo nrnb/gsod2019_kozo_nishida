@@ -88,6 +88,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - [ ] [clusterMaker2](http://apps.cytoscape.org/apps/clustermaker2) doesn't have a document about Commands https://github.com/RBVI/clusterMaker2/issues/11
 - [ ] [CyNDEx-2](http://apps.cytoscape.org/apps/cyndex2) app has not implemented CyCommands.
 - [ ] [PSICQUIC Web Service Client](https://apps.cytoscape.org/apps/psicquicwebserviceclient) app has not implemented CyCommands.
+- [ ] CyCommand or CyREST do not have a function to get the currently applied **Style**.
 
 ## Technical writer and mentors
 ### Writer
