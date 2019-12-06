@@ -84,8 +84,10 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - [ ] CyREST does not yet support the merge network function
 - [ ] py2cytoscape does not yet have RCy3's `selectNodes` equivalent https://github.com/cytoscape/py2cytoscape/issues/97
-- [ ] stringApp `retrieve enrichment` command does not yet support `Apps -> STRING Enrichment -> Retrieve functional enrichment` equivalent
-- [ ] clusterMaker2 doesn't have a document about Commands (?) https://github.com/RBVI/clusterMaker2/issues/11 
+- [ ] [stringApp](http://apps.cytoscape.org/apps/stringapp) `retrieve enrichment` command does not yet support `Apps -> STRING Enrichment -> Retrieve functional enrichment` equivalent
+- [ ] [clusterMaker2](http://apps.cytoscape.org/apps/clustermaker2) doesn't have a document about Commands https://github.com/RBVI/clusterMaker2/issues/11
+- [ ] [CyNDEx-2](http://apps.cytoscape.org/apps/cyndex2) app has not implemented CyCommands.
+- [ ] [PSICQUIC Web Service Client](https://apps.cytoscape.org/apps/psicquicwebserviceclient) app has not implemented CyCommands.
 
 ## Technical writer and mentors
 ### Writer
