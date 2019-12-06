@@ -1,0 +1,58 @@
+---
+title: "Loading Networks"
+author: "Kozo Nishida, Kristina Hanspers and Alex Pico"
+date: "`r Sys.Date()`"
+output:
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 4
+    df_print: paged
+---
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  eval=FALSE
+)
+```
+
+*The R markdown is available from the pulldown menu for* Code *at the upper-right, choose "Download Rmd", or [download the Rmd from GitHub](https://raw.githubusercontent.com/nrnb/gsod2019_kozo_nishida/master/loading-networks.Rmd).*
+
+<hr />
+
+In Cytoscape, network data can be loaded from a variety of sources, and in several different formats. Where you get your network data depends on your biological question and analysis plan. This tutorial outlines how to load network data from several popular sources and formats.
+
+1. Public databases
+  - **NDEx**
+  - **PSICQUIC**
+  - **STRING/STITCH**
+  - **WikiPathways**
+2. Local and remote files
+3. Cytoscape apps (Biopax, KEGG and other formats)
+
+<hr />
+
+# Installation
+```{r, eval = FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+if(!"RCy3" %in% installed.packages())
+  BiocManager::install("RCy3")
+
+library(RCy3)
+```
+
+# Getting started
+First, launch Cytoscape and keep it running whenever using RCy3. Confirm that you have everything installed and running:
+```{r}
+    cytoscapePing()
+    cytoscapeVersionInfo()
+```
+
+# Prerequisites
+
+The exercises require you to have certain Cytoscape apps installed.
+
+```{r}
+installApp('stringApp')
+installApp('WikiPathways')
+```
