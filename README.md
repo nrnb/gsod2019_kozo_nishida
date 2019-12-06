@@ -47,7 +47,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 #### Importing Networks and Tables
 
 - [ ] [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks/#/) with Python
-- [ ] [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks/#/) with R
+- [ ] [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks/#/) with R [links to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/15)
 - [ ] [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/) with Python
 - [x] [Importing Data From Tables](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) with R (Already written by the mentor)
 - [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with Python
