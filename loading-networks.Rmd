@@ -97,3 +97,62 @@ print(network)
 importNetworkFromNDEx(networkId)
 ```
 
+# STRING/STITCH
+
+STRING is a database of known and predicted protein-protein interactions, and STITCH stored known and predicted interactions between chemicals and proteins. Data types include:
+
+- Genomic Context Predictions
+- High-throughput Lab Experiments
+- (Conserved) Co-Expression
+- Automated Textmining
+- Previous Knowledge in Databases
+
+To search STRING with the disease keyword "ovarian cancer", run the following code chunk.
+(The resulting network will load automatically.)
+
+```{r}
+string.cmd = 'string disease query disease="ovarian cancer"'
+commandsRun(string.cmd)
+```
+
+- Networks load with a STRING-specific style, which includes 3D protein structure diagrams.
+
+```{r}
+exportImage('ovarian_cancer', 'PNG')
+```
+
+- STRING networks also inlcude data as node/interaction attributes, that can be used to create a **Style**.
+
+```{r}
+df <- getTableColumns()
+View(df)
+```
+
+- The STRING app includes options to change interaction confidence level, expand the network etc.
+
+```{r}
+getEdgeCount() #Before changing interaction confidence level
+```
+
+```{r}
+string.cmd = 'string change confidence confidence=0.9 network=CURRENT'
+commandsRun(string.cmd)
+```
+
+```{r}
+getEdgeCount() #After changing interaction confidence level
+```
+
+```{r}
+exportImage('before_expand', 'PNG')
+```
+
+```{r}
+string.cmd = 'string expand network=CURRENT'
+commandsRun(string.cmd)
+```
+
+```{r}
+exportImage('after_expand', 'PNG')
+```
+
