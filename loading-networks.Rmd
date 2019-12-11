@@ -55,10 +55,12 @@ The exercises require you to have certain Cytoscape apps and R packages installe
 ```{r}
 installApp('stringApp')
 installApp('WikiPathways')
-if(!"ndexr" %in% installed.packages()){
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-    BiocManager::install("ndexr")
-}
+
+BiocManager::install("ndexr")
+BiocManager::install("rWikiPathways")
 ```
 
 # Networks from Public Data
@@ -156,3 +158,14 @@ commandsRun(string.cmd)
 exportImage('after_expand', 'PNG')
 ```
 
+# WikiPathways
+
+[WikiPathways](https://www.wikipathways.org/) is a collaborative wiki platform with manually pathway models. 
+It currently covers over 2,600 pathways in 25 species-specific collections.
+
+- To search WikiPathways, load [rWikiPathways](https://bioconductor.org/packages/release/bioc/html/rWikiPathways.html) and call the `findPathwayByText` function with your search terms (here we use 'statin' as the term)
+
+```{r}
+library(rWikiPathways)
+statin.pathways <- findPathwaysByText('statin')
+```
