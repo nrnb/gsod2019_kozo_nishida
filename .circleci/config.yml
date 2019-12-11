@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:19.10
+    steps:
+      - checkout
+      - run:
+          name: Download Cytoscape
+          command: apt-get update && apt-get install openjdk-8-jdk wget curl xvfb -y && wget https://github.com/cytoscape/cytoscape/releases/download/3.7.2/cytoscape-3.7.2.tar.gz && tar xf cytoscape-3.7.2.tar.gz && rm cytoscape-3.7.2.tar.gz
+      - run:
+          name: Install RCy3
+          command: apt-get install r-base -y && Rscript -e 'install.packages("BiocManager"); BiocManager::install("RCy3")'
+      - run:
+          name: Start Cytoscape
+          command: xvfb-run bash ./cytoscape-unix-3.7.2/cytoscape.sh
+          background: true
+      - run:
+          name: Check CyREST
+          command: sleep 120 && curl -X GET 'http://localhost:1234/v1/version'
+      - run:
+          name: Render R Markdown
+          command: Rscript -e 'rmarkdown::render("./differentially-expressed-genes.Rmd")'
+          
