@@ -21,4 +21,8 @@ jobs:
       - run:
           name: Render R Markdown
           command: Rscript -e 'rmarkdown::render("./differentially-expressed-genes.Rmd")'
-          
+      - run:
+          name: Move html to artifact dir
+          command: mkdir /tmp/artifacts && mv *.html
+      - store_artifacts:
+          path: /tmp/artifacts
