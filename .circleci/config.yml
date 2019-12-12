@@ -17,7 +17,7 @@ jobs:
           background: true
       - run:
           name: Check CyREST
-          command: sleep 120 && curl -X GET 'http://localhost:1234/v1/version'
+          command: sleep 60 && curl -X GET 'http://localhost:1234/v1/version'
       - run:
           name: Render R Markdown
           command: Rscript -e 'rmarkdown::render("./differentially-expressed-genes.Rmd")'
