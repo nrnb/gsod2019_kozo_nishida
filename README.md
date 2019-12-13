@@ -2,6 +2,8 @@ This is a repository for National Resource for Network Biology (NRNB) [Google Se
 
 # Replacing GUI control tutorials to Jupyter Notebook and R Markdown
 
+[![CircleCI](https://circleci.com/gh/nrnb/gsod2019_kozo_nishida/tree/master.svg?style=svg)](https://circleci.com/gh/nrnb/gsod2019_kozo_nishida/tree/master)
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=rstudio) (for R)
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=lab/tree) (for Python)
