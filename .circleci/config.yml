@@ -20,14 +20,9 @@ jobs:
           command: sleep 60 && curl -X GET 'http://localhost:1234/v1/version'
       - run:
           name: Render R Markdown
-          command: Rscript render-all.R
+          command: Rscript -e 'for (rmdpath in Sys.glob("*.Rmd")) {rmarkdown::render(rmdpath)}'
       - run:
           name: Move html to artifact dir
           command: mkdir /tmp/artifacts && mv *.html /tmp/artifacts/
       - store_artifacts:
           path: /tmp/artifacts
-
-for (val in sequence)
-{
-statement
-}
