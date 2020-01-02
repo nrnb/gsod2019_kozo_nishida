@@ -169,3 +169,31 @@ It currently covers over 2,600 pathways in 25 species-specific collections.
 library(rWikiPathways)
 statin.pathways <- findPathwaysByText('statin')
 ```
+
+- WikiPathways search results are displayed as a list of all available pathway models matching the search term.
+
+```{r}
+print(statin.pathways)
+```
+
+- To restrict the results to **Homo sapiens**, run the following chunk.
+
+```{r}
+human.filter <- lapply(statin.pathways, function(x) x$species == "Homo sapiens")
+human.statin.pathways <- statin.pathways[unlist(human.filter)]
+```
+
+- Pathway models will open with the original pathway layout by default with the following chunk.
+
+```{r}
+lapply(human.statin.pathways, function(x) commandsRun(paste('wikipathways import-as-pathway id=', x$id, sep = '')))
+```
+
+  To open the pathway as a network, run the following chunk.
+
+```{r}
+lapply(human.statin.pathways, function(x) commandsRun(paste('wikipathways import-as-network id=', x$id, sep = '')))
+```
+
+WikiPathways model imported as **pathway** and **network**.
+![](https://cytoscape.org/cytoscape-tutorials/protocols/loading-networks/WP-pathway.png) ![](https://cytoscape.org/cytoscape-tutorials/protocols/loading-networks/WP-network.png)
