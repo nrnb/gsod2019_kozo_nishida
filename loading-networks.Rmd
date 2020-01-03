@@ -61,6 +61,8 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 
 BiocManager::install("ndexr")
 BiocManager::install("rWikiPathways")
+
+install.packages("httr")
 ```
 
 # Networks from Public Data
@@ -197,3 +199,34 @@ lapply(human.statin.pathways, function(x) commandsRun(paste('wikipathways import
 
 WikiPathways model imported as **pathway** and **network**.
 ![](https://cytoscape.org/cytoscape-tutorials/protocols/loading-networks/WP-pathway.png) ![](https://cytoscape.org/cytoscape-tutorials/protocols/loading-networks/WP-network.png)
+
+# Local and Remote Files
+
+Cytoscape can load locally and remotely stored network data files in a variety of file formats:
+
+- **SIF**: Simple interaction format
+- **NNF**: Nested network format
+- **GML** and **XGMML** formats
+- **CYS**: Cytoscape session file
+- Delimited text and Excel format
+
+## Loading SIF files
+
+**SIF** is a simple interaction format consisting of three columns of data: source, interaction and target. To learn more about the SIF format, see the [Cytoscape manual](http://manual.cytoscape.org/en/stable/Supported_Network_File_Formats.html#sif-format).
+
+- Download [*galFiltered.sif*](https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif) and load the network via
+
+```{r}
+library(httr)
+sif_url = "https://cytoscape.github.io/cytoscape-tutorials/protocols/data/galFiltered.sif"
+GET(sif_url, write_disk(tf <- tempfile(fileext = ".sif")))
+importNetworkFromFile(tf)
+```
+
+- To see the whole network, run
+
+```{r}
+fitContent()
+```
+
+
