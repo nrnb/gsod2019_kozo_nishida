@@ -229,4 +229,16 @@ importNetworkFromFile(tf)
 fitContent()
 ```
 
+## Loading XGMML files
 
+**XGMML** is an XML format and can includes node and edge attributes as well as visual style properties. To learn more about the XGMML format, see the [Cytoscape manual](http://manual.cytoscape.org/en/stable/Supported_Network_File_Formats.html#xgmml-format).
+
+- Download https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/BasicDataVizDemo.xgmml and load the network via
+
+```{r}
+xgmml_url = "https://raw.githubusercontent.com/cytoscape/cytoscape-tutorials/gh-pages/protocols/data/BasicDataVizDemo.xgmml"
+GET(xgmml_url, write_disk(tf <- tempfile(fileext = ".xgmml")))
+importNetworkFromFile(tf)
+```
+
+- This is the same network as in the previous step, but with node fill color corresponding to expression values. ![](https://cytoscape.org/cytoscape-tutorials/protocols/loading-networks/galFiltered2Loaded.png)
