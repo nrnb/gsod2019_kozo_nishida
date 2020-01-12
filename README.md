@@ -53,7 +53,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - [ ] [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/) with Python
 - [x] [Importing Data From Tables](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) with R (Already written by the mentor)
 - [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with Python
-- [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with R
+- [x] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with R
 - [ ] [Identifier Mapping](https://cytoscape.org/cytoscape-tutorials/protocols/identifier-mapping/#/) with Python
 - [x] [Identifier Mapping](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Identifier-mapping.nb.html) with R (Already written by the mentor)
 
