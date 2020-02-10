@@ -66,7 +66,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 - [ ] [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis/#/) with Python
 - [x] [Variant Data Analysis](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Cancer-networks-and-data.nb.html) with R (Already written by the mentor)
 - [ ] [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline/#/) with Python
-- [ ] [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline/#/) with R
+- [x] [EnrichmentMap Pipeline](https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html) with R (Already written by Ruth Isserlin)
 - [ ] [Functional Enrichment](https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/) with Python
 - [ ] [Functional Enrichment](https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/6)
 - [ ] [Filtering by Selection](https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/) with Python
