@@ -1,0 +1,5 @@
+pandas
+networkx
+requests
+python-igraph
+-e git+https://github.com/bdemchak/py4cytoscape.git#egg=py4cytoscape
