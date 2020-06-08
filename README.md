@@ -2,19 +2,22 @@ This is a repository for National Resource for Network Biology (NRNB) [Google Se
 
 # Replacing GUI control tutorials to Jupyter Notebook and R Markdown
 
+<!--
 [![CircleCI](https://circleci.com/gh/nrnb/gsod2019_kozo_nishida/tree/master.svg?style=svg)](https://circleci.com/gh/nrnb/gsod2019_kozo_nishida/tree/master)
-
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=rstudio) (for R)
-
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master?urlpath=lab/tree) (for Python)
+-->
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/nrnb/gsod2019_kozo_nishida/master)
 
-## How to use the Binder environments
-- Launch RStudio or JupyterLab server by clicking the above Binder badges.
-- Run the following command in the RStudio `Terminal` tab or JupyterLab `Terminal`. This command launches Cytoscape Desktop in the background. The Cytoscape window is never visible.
+## How to use the Binder environment
+1. Launch a Binder instance by clicking the above Binder badge.
+2. Launch Linux desktop by clicking the `New ▼` button -> `desktop`. ![](https://github.com/nrnb/gsod2019_kozo_nishida/raw/master/images/binder_start_xfce4.jpg)
+3. Right click the Linux Desktop and click `Open Terminal Here`, and run the following command. ![](https://github.com/nrnb/gsod2019_kozo_nishida/raw/master/images/right_click_start_terminal.png) 
   ```
-  xvfb-run bash ~/cytoscape-unix-3.7.2/cytoscape.sh
+  bash ~/cytoscape-unix-3.8.0/cytoscape.sh
   ```
-- Open .Rmd or .ipynb file with RStudio or JupyterLab and run the code chunks or cells. Feel free to modify any of the scripts and run commands directly, but note that your changes will *not* be saved. *Binder only provides a temporary space to try out R and Python automation with Cytoscape.*
+  This command launches Cytoscape Desktop. ![](https://github.com/nrnb/gsod2019_kozo_nishida/raw/master/images/binder_starting_cytoscape_inXFCE4.jpg)
+4. Launch Python or R Jupyter Notebook by clicking the `New ▼` button -> `Python 3` or `R`. ![](https://github.com/nrnb/gsod2019_kozo_nishida/raw/master/images/binder_start_pythonR.jpg) and run the code cells. Feel free to modify any of the scripts and run commands directly, but note that your changes will *not* be saved. *Binder only provides a temporary space to try out R and Python automation with Cytoscape.*
 
 ## The work we've done
 We have written notebook documents that automates the Cytoscape tutorial workflows in http://tutorials.cytoscape.org/ with R and Python.
