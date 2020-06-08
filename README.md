@@ -26,59 +26,77 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 ### Getting Started
 
-- [ ] ["Basic Data Visualization"](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization/#/) with Python
-- [x] ["Basic Data Visualization"](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/basic-data-visualization.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/11)
-- [ ] ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with Python
-- [x] ["Differentially Expressed Genes"](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/differentially-expressed-genes) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/7)
+- ["Basic Data Visualization"](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization)
+  - [x] with [Python](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/ipynb/Python/basic-data-visualization.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/19)
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/basic-data-visualization.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/11)
+- ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes)
+  - [ ] with Python
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/differentially-expressed-genes) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/7)
 
 ### Protocols
 
 #### Cytoscape Apps
 
-- [ ] [stringApp](https://cytoscape.github.io/cytoscape-tutorials/protocols/stringApp/#/) with Python
-- [x] [stringApp](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/stringApp.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/8)
-- [ ] [WikiPathways App](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app/#/) with Python
-- [x] [WikiPathways App](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/wikipathways-app.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/10)
+- [stringApp](https://cytoscape.github.io/cytoscape-tutorials/protocols/stringApp)
+  - [ ] with Python
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/stringApp.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/8)
+- [WikiPathways App](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app)
+  - [ ] with Python
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/wikipathways-app.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/10)
 
 #### Data Visualization
 
-- [ ] [Visualizing Data](https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data/#/) with Python
-- [x] [Visualizing Data](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/mapping-data.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/12)
-- [ ] [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout/#/) with Python
-- [x] [Network Layout](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/network-layout.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
-- [ ] [Custom Graphics and Labels](https://cytoscape.github.io/cytoscape-tutorials/protocols/custom-enhanced-graphics-style/#/) with Python
-- [x] [Custom Graphics and Labels](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Custom-Graphics.nb.html) with R (Already written by the mentor)
+- [Visualizing Data](https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data)
+  - [ ] with Python
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/mapping-data.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/12)
+- [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout)
+  - [ ] with Python
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/network-layout.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
+- [Custom Graphics and Labels](https://cytoscape.github.io/cytoscape-tutorials/protocols/custom-enhanced-graphics-style)
+  - [ ] with Python
+  - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Custom-Graphics.nb.html) (Already written by the mentor)
 
 #### Importing Networks and Tables
 
-- [ ] [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks/#/) with Python
-- [x] [Loading Networks](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/loading-networks.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/15)
-- [ ] [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables/#/) with Python
-- [x] [Importing Data From Tables](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) with R (Already written by the mentor)
-- [ ] [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table/#/) with Python
-- [x] [Importing Network From Table](http://rpubs.com/kozo2/565297) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/17)
-- [ ] [Identifier Mapping](https://cytoscape.org/cytoscape-tutorials/protocols/identifier-mapping/#/) with Python
-- [x] [Identifier Mapping](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Identifier-mapping.nb.html) with R (Already written by the mentor)
+- [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks)
+  - [ ] with Python
+  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/loading-networks.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/15)
+- [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables)
+  - [ ] with Python
+  - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) , (Already written by the mentor)
+- [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table)
+  - [ ] with Python
+  - [x] with [R](http://rpubs.com/kozo2/565297) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/17)
+- [Identifier Mapping](https://cytoscape.org/cytoscape-tutorials/protocols/identifier-mapping)
+  - [ ] with Python
+  - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Identifier-mapping.nb.html) , (Already written by the mentor)
 
 #### Network Analysis
 
-- [ ] [Differentially Expressed Genes Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with Python
-- [ ] [Differentially Expressed Genes Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes/#/) with R
-- [ ] [Affinity Purification-Mass Spectrometry Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/AP-MS-network-analysis/#/) with Python
-- [x] [Affinity Purification-Mass Spectrometry Network Analysis](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/AP-MS-network-analysis.nb.html) with R (Already written by the mentor)
-- [ ] [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis/#/) with Python
-- [x] [Variant Data Analysis](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Cancer-networks-and-data.nb.html) with R (Already written by the mentor)
-- [ ] [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline/#/) with Python
-- [x] [EnrichmentMap Pipeline](https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html) with R (Already written by Ruth Isserlin)
-- [ ] [Functional Enrichment](https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/) with Python
-- [ ] [Functional Enrichment](https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment/#/) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/6)
-- [ ] [Filtering by Selection](https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/) with Python
-- [ ] [Filtering by Selection](https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection/#/) with R
+- [Differentially Expressed Genes Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes)
+  - [ ] with Python
+  - [ ] with R
+- [Affinity Purification-Mass Spectrometry Network Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/AP-MS-network-analysis)
+  - [ ] with Python
+  - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/AP-MS-network-analysis.nb.html) , (Already written by the mentor)
+- [Variant Data Analysis](https://cytoscape.org/cytoscape-tutorials/protocols/variant-data-analysis)
+  - [ ] with Python
+  - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Cancer-networks-and-data.nb.html) , (Already written by the mentor)
+- [EnrichmentMap Pipeline](https://cytoscape.github.io/cytoscape-tutorials/protocols/enrichmentmap-pipeline)
+  - [ ] with Python
+  - [x] with [R](https://baderlab.github.io/Cytoscape_workflows/EnrichmentMapPipeline/index.html) , (Already written by Ruth Isserlin)
+- [Functional Enrichment](https://cytoscape.github.io/cytoscape-tutorials/protocols/functional-enrichment)
+  - [ ] with Python
+  - [ ] with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/6)
+- [Filtering by Selection](https://cytoscape.github.io/cytoscape-tutorials/protocols/filtering-by-selection)
+  - [ ] with Python
+  - [ ] with R
 
 ### Exporting and Publishing
 
-- [ ] [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results/#/) with Python
-- [x] [Saving Results](http://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/saving-results.html) with R [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/9)
+- [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results)
+  - [ ] with Python
+  - [x] with [R](http://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/saving-results.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/9)
 
 ## There is still work to be done...
 
