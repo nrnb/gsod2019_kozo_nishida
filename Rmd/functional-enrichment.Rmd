@@ -118,3 +118,18 @@ createCompositeFilter("Default filter", c("filter1", "filter2"), "ANY")
 
 Only one gene shows significant average expression changes across all samples, **RPS4Y1**, a ribosomal protein that has been shown to be linked to glioblastoma, but it’s still a relatively unsatisfying result that only a single protein changes expression in glioblastoma patients.
 A closer examination might be in order...
+
+# Cluster to see expression patterns
+
+Let’s cluster all of the data to see if there are any significant patterns that have been averaged out by looking at all samples in the aggregate.
+**clusterMaker2** is a Cytoscape app that provides a number of clustering algorithms including hierarchical and k-means.
+
+- **Perform hierarchical clustering**.
+
+```{r}
+cluster.cmd = 'cluster hierarchical metric=Pearson nodeAttributeList= showUI='
+commandsRun(cluster.cmd)
+```
+
+
+In Cytoscape, select Apps → clusterMaker → Hierarchical cluster. This will bring the settings for hierarchical clustering. Select Pearson correlation for Distance metric andSelect all of the samples (columns beginning with TCGA-) in the Node attributes for cluster list. The checkboxes Cluster attributes as well as nodes, Ignore nodes/edges with no data, and Show TreeView when complete should all be checked. Then click OK. The resulting TreeView should look like the figure on the next slide.

@@ -70,8 +70,9 @@ First, launch Cytoscape and keep it running whenever using RCy3. Confirm that yo
 
 You can search for pathways based on a keyword *Statin* via
 
-```{r}
+```{r eval=TRUE}
 statin.pathways <- findPathwaysByText('Statin')
+print(statin.pathways)
 ```
 
 We have a list of pathways that mention *Statin*.
