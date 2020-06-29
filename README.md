@@ -62,7 +62,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
   - [ ] with Python
   - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/loading-networks.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/15)
 - [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables)
-  - [ ] with Python
+  - [x] with [Python](./ipynb/Python/Importing_data.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/24)
   - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) , (Already written by the mentor)
 - [Importing Network From Table](https://cytoscape.org/cytoscape-tutorials/protocols/importing-network-from-table)
   - [ ] with Python
