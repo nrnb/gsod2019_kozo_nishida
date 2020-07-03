@@ -27,7 +27,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 ### Getting Started
 
 - ["Basic Data Visualization"](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization)
-  - [x] with [Python](https://nbviewer.jupyter.org/github/nrnb/gsod2019_kozo_nishida/blob/master/ipynb/Python/basic-data-visualization.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/19)
+  - [x] with [Python](./ipynb/Python/basic-data-visualization.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/19)
   - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/basic-data-visualization.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/11)
 - ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes)
   - [ ] with Python
