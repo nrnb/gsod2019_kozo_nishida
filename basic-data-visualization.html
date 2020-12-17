@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Basic Data Visualization &#8212; Replacing Cytoscape GUI control tutorials to R and Python</title>
+    
+  <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Replacing Cytoscape GUI control tutorials to R and Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Basic Data Visualization
+  </a>
+ </li>
+</ul>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/basic-data-visualization.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-network">
+   Loading Network
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizing-expression-data-on-networks">
+   Visualizing Expression Data on Networks
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-node-fill-color">
+     Set Node Fill Color
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-default-node-color">
+     Set Default Node Color
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#set-node-border-width">
+     Set Node Border Width
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#layouts">
+   Layouts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#select-nodes">
+   Select Nodes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expand-selection-and-create-new-network">
+     Expand Selection and Create New Network
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#saving-results">
+   Saving Results
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="basic-data-visualization">
+<h1>Basic Data Visualization<a class="headerlink" href="#basic-data-visualization" title="Permalink to this headline">¶</a></h1>
+<p><strong>Cytoscape is an open source software platform for integrating, visualizing, and analyzing measurement data in the context of networks.</strong></p>
+<p>This tutorial presents a scenario of how expression and network data can be combined to tell a biological story and includes these concepts:</p>
+<ul class="simple">
+<li><p>Visualizing networks using expression data.</p></li>
+<li><p>Filtering networks based on expression data.</p></li>
+<li><p>Assessing expression data in the context of a biological network.</p></li>
+</ul>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>FILLME. How can we combine the prerequisites instruction of RCy3 and py4cytoscape here? Should it be separeted to the other pages?</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>First, launch Cytoscape and keep it running whenever using RCy3 or py4cytoscape. Confirm that you have everything installed and running:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="c5cccb55-fe27-4ec5-9d04-a2f9303682cf" name="9c8bcacb-61c3-4428-8910-f96b9b284f15" type="radio">
+</input><label class="tabbed-label" for="c5cccb55-fe27-4ec5-9d04-a2f9303682cf">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">cytoscapePing</span><span class="p">()</span>
+<span class="nf">cytoscapeVersionInfo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<input id="f2245383-8e92-4d61-96a5-57e0d348c397" name="9c8bcacb-61c3-4428-8910-f96b9b284f15" type="radio">
+</input><label class="tabbed-label" for="f2245383-8e92-4d61-96a5-57e0d348c397">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cytoscape_ping</span><span class="p">()</span>
+<span class="n">cytoscape_version_info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-network">
+<h2>Loading Network<a class="headerlink" href="#loading-network" title="Permalink to this headline">¶</a></h2>
+<p>You can download the <a class="reference external" href="https://nrnb.org/data/BasicDataVizDemo.cys">demo network session file</a> to your current working directory by running…</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="7d022381-aa4b-4108-b4a1-3bc8122dbcd5" name="1249f30a-0588-430e-b1f7-4db8b57bd793" type="radio">
+</input><label class="tabbed-label" for="7d022381-aa4b-4108-b4a1-3bc8122dbcd5">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">download.file</span><span class="p">(</span><span class="s">&quot;https://nrnb.org/data/BasicDataVizDemo.cys&quot;</span><span class="p">,</span> <span class="s">&quot;./BasicDataVizDemo.cys&quot;</span><span class="p">,</span> <span class="s">&#39;curl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="579bc51e-6bec-4bc2-80a5-5e5a02fbd5ce" name="1249f30a-0588-430e-b1f7-4db8b57bd793" type="radio">
+</input><label class="tabbed-label" for="579bc51e-6bec-4bc2-80a5-5e5a02fbd5ce">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Below is the IPython magic command, not the Python code, but this is the easiest.</span>
+<span class="c1"># !curl -O https://nrnb.org/data/BasicDataVizDemo.cys</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now open the demo network using…</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="f021979b-d571-4fc0-b12a-a4a31213ff13" name="a7a35c3f-04b8-4652-a12d-4eed3f6a4602" type="radio">
+</input><label class="tabbed-label" for="f021979b-d571-4fc0-b12a-a4a31213ff13">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">openSession</span><span class="p">(</span><span class="n">file.location</span> <span class="o">=</span> <span class="s">&quot;./BasicDataVizDemo.cys&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="33f5b3e6-ef9d-4352-b79e-5bf3d7fb3914" name="a7a35c3f-04b8-4652-a12d-4eed3f6a4602" type="radio">
+</input><label class="tabbed-label" for="33f5b3e6-ef9d-4352-b79e-5bf3d7fb3914">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">open_session</span><span class="p">(</span><span class="n">file_location</span><span class="o">=</span><span class="s2">&quot;BasicDataVizDemo.cys&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you should see a network like this.</p>
+<p><img alt="" src="_images/BasicDataVizDemo.png" /></p>
+</div>
+<div class="section" id="visualizing-expression-data-on-networks">
+<h2>Visualizing Expression Data on Networks<a class="headerlink" href="#visualizing-expression-data-on-networks" title="Permalink to this headline">¶</a></h2>
+<p>Probably the most common use of expression data in Cytoscape is to set the <strong>visual properties</strong> of the nodes (color, shape, border) in a network according to expression data.
+This creates a powerful visualization, portraying functional relation and experimental response at the same time.
+Here, we will show an example of doing this.</p>
+<p>The data used in this example is from yeast, and represents an experiment of perturbations of the genes <strong>Gal1</strong>, <strong>Gal4</strong>, and <strong>Gal80</strong>, which are all yeast transcription factors.</p>
+<p>For this tutorial, the experimental data was part of the Cytoscape session file you loaded earlier, and is visible in the Node Table:</p>
+<p><img alt="" src="_images/Galbrowse3.png" /></p>
+<ul class="simple">
+<li><p>You can select nodes in the network by</p></li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="ae908006-3b7e-407d-bc4d-21c990b32d14" name="4ad529e5-75db-459d-9a55-bede1c1c1599" type="radio">
+</input><label class="tabbed-label" for="ae908006-3b7e-407d-bc4d-21c990b32d14">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">selectNodes</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;YDL194W&quot;</span><span class="p">,</span> <span class="s">&quot;YLR345W&quot;</span><span class="p">),</span> <span class="n">by.col</span> <span class="o">=</span> <span class="s">&quot;name&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="d0902000-882e-490d-878e-3cc0eaa4fcf3" name="4ad529e5-75db-459d-9a55-bede1c1c1599" type="radio">
+</input><label class="tabbed-label" for="d0902000-882e-490d-878e-3cc0eaa4fcf3">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">select_nodes</span><span class="p">([</span><span class="s1">&#39;YDL194W&#39;</span><span class="p">,</span> <span class="s1">&#39;YLR345W&#39;</span><span class="p">],</span> <span class="n">by_col</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Selecting one or more nodes in the network will update the Node Table to show only the corresponding row(s).</p></li>
+</ul>
+<p><img alt="" src="_images/SelectNodes.png" /></p>
+<p>We can now use the data to manipulate the visual properties of the network by mapping specific data columns to visual style properties:</p>
+<ul class="simple">
+<li><p>The <strong>gal80Rexp</strong> expression values will be mapped to node color; nodes with low expression will be colored blue, nodes with high expression will be colored red.</p></li>
+<li><p>Significance for expression values will be mapped to Node Border Width, so nodes with significant changes will appear with a thicker border.</p></li>
+</ul>
+<div class="section" id="set-node-fill-color">
+<h3>Set Node Fill Color<a class="headerlink" href="#set-node-fill-color" title="Permalink to this headline">¶</a></h3>
+<p>Let’s specify the node fill color as a gradient ranging from blue to red for expression values using a continuous mapping for the ‘gal80Rexp’ column:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="2817f8d6-0b79-404c-a227-4bfbfd319a86" name="4265b88a-ddaa-44df-ab4f-81c78291c77d" type="radio">
+</input><label class="tabbed-label" for="2817f8d6-0b79-404c-a227-4bfbfd319a86">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">gal80Rexp.score.table</span> <span class="o">&lt;-</span> <span class="nf">getTableColumns</span><span class="p">(</span><span class="s">&#39;node&#39;</span><span class="p">,</span><span class="s">&#39;gal80Rexp&#39;</span><span class="p">)</span>
+<span class="n">gal80Rexp.min</span> <span class="o">&lt;-</span> <span class="nf">min</span><span class="p">(</span><span class="n">gal80Rexp.score.table</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">gal80Rexp.max</span> <span class="o">&lt;-</span> <span class="nf">max</span><span class="p">(</span><span class="n">gal80Rexp.score.table</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">gal80Rexp.center</span> <span class="o">&lt;-</span> <span class="n">gal80Rexp.min</span> <span class="o">+</span> <span class="p">(</span><span class="n">gal80Rexp.max</span> <span class="o">-</span> <span class="n">gal80Rexp.min</span><span class="p">)</span><span class="o">/</span><span class="m">2</span>
+<span class="nf">setNodeColorMapping</span><span class="p">(</span><span class="s">&#39;gal80Rexp&#39;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="n">gal80Rexp.min</span><span class="p">,</span> <span class="n">gal80Rexp.center</span><span class="p">,</span> <span class="n">gal80Rexp.max</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;#0000FF&#39;</span><span class="p">,</span> <span class="s">&#39;#FFFFFF&#39;</span><span class="p">,</span> <span class="s">&#39;#FF0000&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<input id="a93ddc56-76a3-436f-a5bf-4d7a0596e70f" name="4265b88a-ddaa-44df-ab4f-81c78291c77d" type="radio">
+</input><label class="tabbed-label" for="a93ddc56-76a3-436f-a5bf-4d7a0596e70f">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gal80Rexp_score_table</span> <span class="o">=</span> <span class="n">get_table_columns</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;gal80Rexp&#39;</span><span class="p">)</span>
+<span class="n">gal80Rexp_min</span> <span class="o">=</span> <span class="n">gal80Rexp_score_table</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">gal80Rexp_max</span> <span class="o">=</span> <span class="n">gal80Rexp_score_table</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">gal80Rexp_center</span> <span class="o">=</span> <span class="n">gal80Rexp_min</span> <span class="o">+</span> <span class="p">(</span><span class="n">gal80Rexp_max</span> <span class="o">-</span> <span class="n">gal80Rexp_min</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">set_node_color_mapping</span><span class="p">(</span><span class="s1">&#39;gal80Rexp&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">gal80Rexp_min</span><span class="p">,</span> <span class="n">gal80Rexp_center</span><span class="p">,</span> <span class="n">gal80Rexp_max</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;#0000FF&#39;</span><span class="p">,</span> <span class="s1">&#39;#FFFFFF&#39;</span><span class="p">,</span> <span class="s1">&#39;#FF0000&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>This produces an initial gradient ranging from blue to red for expression values. Notice that the nodes in the network change color.</p></li>
+</ul>
+<p><img alt="" src="_images/SetNodeFillColor.png" /></p>
+</div>
+<div class="section" id="set-default-node-color">
+<h3>Set Default Node Color<a class="headerlink" href="#set-default-node-color" title="Permalink to this headline">¶</a></h3>
+<p>Some nodes in the network don’t have any data, and for those nodes, the default color applies.
+In our case, the default color is blue, which falls within the spectrum of our blue-red gradient.
+This is not ideal for data visualization, so a useful trick is to choose a color outside the gradient spectrum to distinguish nodes with no defined expression value.</p>
+<p>We can set default node color to dark gray color:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="31e7afd2-62ab-4617-a287-21a15a87b624" name="893db7dc-a61a-4c73-ba91-ff985e68f383" type="radio">
+</input><label class="tabbed-label" for="31e7afd2-62ab-4617-a287-21a15a87b624">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">setNodeColorDefault</span><span class="p">(</span><span class="s">&#39;#666666&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="6b2572f3-1fec-4944-972d-1a7fe54673a8" name="893db7dc-a61a-4c73-ba91-ff985e68f383" type="radio">
+</input><label class="tabbed-label" for="6b2572f3-1fec-4944-972d-1a7fe54673a8">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">set_node_color_default</span><span class="p">(</span><span class="s1">&#39;#666666&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/SetDefaultNodeColor.png" /></p>
+</div>
+<div class="section" id="set-node-border-width">
+<h3>Set Node Border Width<a class="headerlink" href="#set-node-border-width" title="Permalink to this headline">¶</a></h3>
+<p>To visualize the significance of measurements, let’s add a contiuous mapping for ‘gal80Rsig’ p-values to Node Border Width:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="44abe993-fc51-455d-8723-4113a865dcc1" name="5686ccdf-f2cf-4d7b-bfcc-042528eaeed9" type="radio">
+</input><label class="tabbed-label" for="44abe993-fc51-455d-8723-4113a865dcc1">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">gal80Rsig.score.table</span> <span class="o">&lt;-</span> <span class="nf">getTableColumns</span><span class="p">(</span><span class="s">&#39;node&#39;</span><span class="p">,</span><span class="s">&#39;gal80Rsig&#39;</span><span class="p">)</span>
+<span class="n">gal80Rsig.min</span> <span class="o">&lt;-</span> <span class="nf">min</span><span class="p">(</span><span class="n">gal80Rsig.score.table</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">gal80Rsig.max</span> <span class="o">&lt;-</span> <span class="nf">max</span><span class="p">(</span><span class="n">gal80Rsig.score.table</span><span class="p">,</span> <span class="n">na.rm</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="nf">setNodeBorderWidthMapping</span><span class="p">(</span><span class="s">&#39;gal80Rsig&#39;</span><span class="p">,</span> <span class="nf">c</span><span class="p">(</span><span class="n">gal80Rsig.min</span><span class="p">,</span> <span class="n">gal80Rsig.max</span><span class="p">),</span> <span class="nf">c</span><span class="p">(</span><span class="m">10</span><span class="p">,</span><span class="m">30</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<input id="bcd1f35d-4784-4bd2-bd19-0141a8de12a6" name="5686ccdf-f2cf-4d7b-bfcc-042528eaeed9" type="radio">
+</input><label class="tabbed-label" for="bcd1f35d-4784-4bd2-bd19-0141a8de12a6">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gal80Rsig_score_table</span> <span class="o">=</span> <span class="n">get_table_columns</span><span class="p">(</span><span class="n">table</span><span class="o">=</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;gal80Rsig&#39;</span><span class="p">)</span>
+<span class="n">gal80Rsig_min</span> <span class="o">=</span> <span class="n">gal80Rsig_score_table</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">gal80Rsig_max</span> <span class="o">=</span> <span class="n">gal80Rsig_score_table</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">set_node_border_width_mapping</span><span class="p">(</span><span class="s1">&#39;gal80Rsig&#39;</span><span class="p">,</span> <span class="n">table_column_values</span><span class="o">=</span><span class="p">[</span><span class="n">gal80Rsig_min</span><span class="p">,</span> <span class="n">gal80Rsig_max</span><span class="p">],</span> <span class="n">widths</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This creates the following mapping for <code class="docutils literal notranslate"><span class="pre">gal80Rsig</span></code>:
+<img alt="" src="_images/SetNodeBorderWidth.png" /></p>
+</div>
+</div>
+<div class="section" id="layouts">
+<h2>Layouts<a class="headerlink" href="#layouts" title="Permalink to this headline">¶</a></h2>
+<p>An important aspect of network visualization is the layout, meaning the positioning of nodes and edges.
+Our network had a preset layout in the original file you imported, but this can be changed.</p>
+<ul class="simple">
+<li><p>Let’s change the layout to <strong>Degree Sorted Circle Layout</strong>:</p></li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="411587ab-03d5-432f-9d43-2d24fb36f779" name="f563a09e-2564-413f-a498-4d86fc1f0cf6" type="radio">
+</input><label class="tabbed-label" for="411587ab-03d5-432f-9d43-2d24fb36f779">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layoutNetwork</span><span class="p">(</span><span class="s">&quot;degree-circle&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="63125534-f20b-438f-a63d-7f314f997edb" name="f563a09e-2564-413f-a498-4d86fc1f0cf6" type="radio">
+</input><label class="tabbed-label" for="63125534-f20b-438f-a63d-7f314f997edb">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">layout_network</span><span class="p">(</span><span class="s1">&#39;degree-circle&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/degree-circle.png" /></p>
+<p>In this layout, nodes are sorted by degree (connectedness), with the highest degree node at the 6 o’clock position, and remaining nodes are sorted counter clock-wise based on decreasing degree.</p>
+<p>For this network, a degree-sorted circle layout may not be the most effective.
+Instead, let’s try a force-directed layout instead, which may work better with this network.</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="9c4c0cb9-ad16-4acb-a30b-40363ed1ed4c" name="430aafe6-56e6-44e9-a04d-005c1b88ae5e" type="radio">
+</input><label class="tabbed-label" for="9c4c0cb9-ad16-4acb-a30b-40363ed1ed4c">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">layoutNetwork</span><span class="p">(</span><span class="s">&quot;force-directed&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="93478883-d27b-4488-9f0a-a3519c335e1f" name="430aafe6-56e6-44e9-a04d-005c1b88ae5e" type="radio">
+</input><label class="tabbed-label" for="93478883-d27b-4488-9f0a-a3519c335e1f">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">layout_network</span><span class="p">(</span><span class="s1">&#39;force-directed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/force-directed.png" /></p>
+<p>Cytoscape supports many different layout algorithms, described in detail in the <a class="reference external" href="http://manual.cytoscape.org/en/stable/Navigation_and_Layout.html?highlight=layout#automatic-layout-algorithms">Cytoscape manual</a>.</p>
+</div>
+<div class="section" id="select-nodes">
+<h2>Select Nodes<a class="headerlink" href="#select-nodes" title="Permalink to this headline">¶</a></h2>
+<p>Cytoscape allows you to easily filter and select nodes and edges based on data attributes.
+Next, we will select a subset of nodes with high expression in the gal80 knockout:</p>
+<p>Let’s select a subset of nodes with high expression in the gal80 knockout:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="d93e61ef-aff0-4f4b-bf0c-ffa559afa276" name="3c885a1e-c20a-4ec3-8838-55eda14a0832" type="radio">
+</input><label class="tabbed-label" for="d93e61ef-aff0-4f4b-bf0c-ffa559afa276">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">createColumnFilter</span><span class="p">(</span><span class="s">&#39;myFilter&#39;</span><span class="p">,</span> <span class="s">&#39;gal80Rexp&#39;</span><span class="p">,</span> <span class="m">2.00</span><span class="p">,</span> <span class="s">&quot;GREATER_THAN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="bca563c6-0fc9-4e42-8502-464d85363516" name="3c885a1e-c20a-4ec3-8838-55eda14a0832" type="radio">
+</input><label class="tabbed-label" for="bca563c6-0fc9-4e42-8502-464d85363516">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">create_column_filter</span><span class="p">(</span><span class="s1">&#39;myFilter&#39;</span><span class="p">,</span> <span class="s1">&#39;gal80Rexp&#39;</span><span class="p">,</span> <span class="mf">2.00</span><span class="p">,</span> <span class="s2">&quot;GREATER_THAN&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should now see only a few nodes in the network selected (highlighted yellow).</p>
+<p><img alt="" src="_images/column-filter.png" /></p>
+<div class="section" id="expand-selection-and-create-new-network">
+<h3>Expand Selection and Create New Network<a class="headerlink" href="#expand-selection-and-create-new-network" title="Permalink to this headline">¶</a></h3>
+<p>We have now selected only the few top expressing nodes.
+To see the context of these nodes in the larger network, we can expand the selection of nodes to include the nodes connecting to the selected nodes, i.e. the first neighbors.
+Once we have that larger selection, we can create a new network.</p>
+<p>Select the first neighbors of selected nodes:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="8bebd357-e78e-42d6-9630-c9edf6fee417" name="4e1959b9-800f-411c-825d-c855a846d66a" type="radio">
+</input><label class="tabbed-label" for="8bebd357-e78e-42d6-9630-c9edf6fee417">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">selectFirstNeighbors</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<input id="88c650f7-f967-4f00-9e4c-04a5e8d047da" name="4e1959b9-800f-411c-825d-c855a846d66a" type="radio">
+</input><label class="tabbed-label" for="88c650f7-f967-4f00-9e4c-04a5e8d047da">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">select_first_neighbors</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="" src="_images/first-neighbors.png" /></p>
+<p>Digging into the biology of this network, it turns out that GAL4 is repressed by GAL80.
+Both nodes (GAL4 and GAL11) show fairly small changes in expression, and neither change is statistically significant: they are pale blue with thin borders.
+These slight changes in expression suggest that the critical change affecting the red nodes might be somewhere else in the network, and not either of these nodes.
+GAL4 interacts with GAL80, which shows a significant level of repression: it is medium blue with a thicker border.</p>
+<p>Note that while GAL80 shows evidence of significant repression, most nodes interacting with GAL4 show significant levels of induction: they are rendered as red rectangles.
+GAL11 is a general transcription co-factor with many interactions.</p>
+<p>Putting all of this together, we see that the <em><strong>transcriptional activation activity of Gal4 is repressed by Gal80</strong></em>.
+So, repression of Gal80 increases the transcriptional activation activity of Gal4.
+Even though the expression of Gal4 itself did not change much, <em><strong>the Gal4 transcripts were much more likely to be active transcription factors when Gal80 was repressed</strong></em>.
+This explains why there is so much up-regulation in the vicinity of Gal4.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In summary, we have:</p>
+<ul class="simple">
+<li><p>Explored a yeast interactome from a transcription factor knockout experiment</p></li>
+<li><p>Created a visual style using expression value as node color and with border width mapped to significance</p></li>
+<li><p>Selected high expressing genes and their neighbors and created a new network</p></li>
+</ul>
+<p>Finally, we can now export this network as a publication-quality image….</p>
+</div>
+<div class="section" id="saving-results">
+<h2>Saving Results<a class="headerlink" href="#saving-results" title="Permalink to this headline">¶</a></h2>
+<p>Cytoscape provides a number of ways to save results and visualizations:</p>
+<ul class="simple">
+<li><p>As a session:</p></li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="00353915-a82f-4060-a376-ce115a5bdb91" name="62787e8e-f907-4987-adee-7a6bc563bc98" type="radio">
+</input><label class="tabbed-label" for="00353915-a82f-4060-a376-ce115a5bdb91">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">saveSession</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization.cys&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="9ffba5d8-7a9f-4688-a9ab-f01685b35859" name="62787e8e-f907-4987-adee-7a6bc563bc98" type="radio">
+</input><label class="tabbed-label" for="9ffba5d8-7a9f-4688-a9ab-f01685b35859">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">save_session</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization.cys&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>As an image:</p></li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="78323376-09ff-48bc-8335-7169a8969f46" name="b7933967-819e-42b9-9e53-621cf5aaf1e7" type="radio">
+</input><label class="tabbed-label" for="78323376-09ff-48bc-8335-7169a8969f46">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">exportImage</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;PDF&#39;</span><span class="p">)</span>
+<span class="nf">exportImage</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;PNG&#39;</span><span class="p">)</span>
+<span class="nf">exportImage</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;JPEG&#39;</span><span class="p">)</span>
+<span class="nf">exportImage</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;SVG&#39;</span><span class="p">)</span>
+<span class="nf">exportImage</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;PS&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="ec939284-28c7-469c-b7eb-0ba800fce31b" name="b7933967-819e-42b9-9e53-621cf5aaf1e7" type="radio">
+</input><label class="tabbed-label" for="ec939284-28c7-469c-b7eb-0ba800fce31b">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">export_image</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+<span class="n">export_image</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
+<span class="n">export_image</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;JPEG&#39;</span><span class="p">)</span>
+<span class="n">export_image</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;SVG&#39;</span><span class="p">)</span>
+<span class="n">export_image</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;PS&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>To a public repository:</p></li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="65d2b273-0977-4d8b-9e04-6daea74554ae" name="2201be31-b5d3-4a59-8377-7d9225b92567" type="radio">
+</input><label class="tabbed-label" for="65d2b273-0977-4d8b-9e04-6daea74554ae">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">exportNetworkToNDEx</span><span class="p">(</span><span class="s">&quot;user&quot;</span><span class="p">,</span> <span class="s">&quot;pass&quot;</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="76f96e4a-b904-48d0-bbb5-7d73cca6f798" name="2201be31-b5d3-4a59-8377-7d9225b92567" type="radio">
+</input><label class="tabbed-label" for="76f96e4a-b904-48d0-bbb5-7d73cca6f798">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">export_network_to_ndex</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>As a graph format file (Formats: “CX JSON”, “Cytoscape.js JSON”, “GraphML”, “XGMML”, “SIF”,…):</p></li>
+</ul>
+<div class="tabbed-set docutils">
+<input checked="checked" id="cfa58ad5-5e1c-4e4a-a6b4-b25f819d443f" name="f94308fe-5fcc-4272-87ba-7589024c02b5" type="radio">
+</input><label class="tabbed-label" for="cfa58ad5-5e1c-4e4a-a6b4-b25f819d443f">
+r</label><div class="tabbed-content docutils">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">exportNetwork</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;CX&#39;</span><span class="p">)</span>
+<span class="nf">exportNetwork</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;cyjs&#39;</span><span class="p">)</span>
+<span class="nf">exportNetwork</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;graphML&#39;</span><span class="p">)</span>
+<span class="nf">exportNetwork</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;xGMML&#39;</span><span class="p">)</span>
+<span class="nf">exportNetwork</span><span class="p">(</span><span class="s">&#39;./basic-data-visualization&#39;</span><span class="p">,</span> <span class="s">&#39;SIF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<input id="67b02f60-f53b-426e-98d9-230cf8143e4e" name="f94308fe-5fcc-4272-87ba-7589024c02b5" type="radio">
+</input><label class="tabbed-label" for="67b02f60-f53b-426e-98d9-230cf8143e4e">
+python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">export_network</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="s1">&#39;CX&#39;</span><span class="p">)</span>
+<span class="n">export_network</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="s1">&#39;cyjs&#39;</span><span class="p">)</span>
+<span class="n">export_network</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="s1">&#39;graphML&#39;</span><span class="p">)</span>
+<span class="n">export_network</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="s1">&#39;xGMML&#39;</span><span class="p">)</span>
+<span class="n">export_network</span><span class="p">(</span><span class="s1">&#39;basic-data-visualization&#39;</span><span class="p">,</span> <span class="s1">&#39;SIF&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By The Jupyter Book community<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
