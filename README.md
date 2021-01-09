@@ -1,3 +1,9 @@
+# Notes
+
+> This repository was **archived** and **will not be updated**.
+> The R and Python notebook updates will take place in https://github.com/cytoscape/cytoscape-automation/.
+
+
 This is a repository for National Resource for Network Biology (NRNB) [Google Season of Docs project](https://developers.google.com/season-of-docs/docs/participants) named
 
 # Replacing GUI control tutorials to Jupyter Notebook and R Markdown
