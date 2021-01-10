@@ -43,7 +43,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - [Visualizing Data](https://cytoscape.github.io/cytoscape-tutorials/protocols/mapping-data)
   - [ ] with Python
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/mapping-data.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/12)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/mapping-data.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/12)
 - [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout)
   - [ ] with Python
   - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/network-layout.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
