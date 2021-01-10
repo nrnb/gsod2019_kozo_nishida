@@ -23,10 +23,10 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - ["Basic Data Visualization"](https://cytoscape.org/cytoscape-tutorials/protocols/basic-data-visualization)
   - [x] with [Python](./ipynb/Python/basic-data-visualization.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/19)
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/basic-data-visualization.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/11)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/basic-data-visualization.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/11)
 - ["Differentially Expressed Genes"](https://cytoscape.org/cytoscape-tutorials/protocols/differentially-expressed-genes)
   - [ ] with Python
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/differentially-expressed-genes) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/7)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/differentially-expressed-genes.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/7)
 
 ### Protocols
 
@@ -34,10 +34,10 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - [stringApp](https://cytoscape.github.io/cytoscape-tutorials/protocols/stringApp)
   - [ ] with Python
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/stringApp.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/8)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/stringApp.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/8)
 - [WikiPathways App](https://cytoscape.github.io/cytoscape-tutorials/protocols/wikipathways-app)
   - [ ] with Python
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/wikipathways-app.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/10)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/wikipathways-app.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/10)
 
 #### Data Visualization
 
@@ -46,7 +46,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
   - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/mapping-data.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/12)
 - [Network Layout](https://cytoscape.github.io/cytoscape-tutorials/protocols/network-layout)
   - [ ] with Python
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/network-layout.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/network-layout.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/13)
 - [Custom Graphics and Labels](https://cytoscape.github.io/cytoscape-tutorials/protocols/custom-enhanced-graphics-style)
   - [ ] with Python
   - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Custom-Graphics.nb.html) (Already written by the mentor)
@@ -55,7 +55,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - [Loading Networks](https://cytoscape.github.io/cytoscape-tutorials/protocols/loading-networks)
   - [ ] with Python
-  - [x] with [R](https://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/loading-networks.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/15)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/loading-networks.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/15)
 - [Importing Data From Tables](https://cytoscape.github.io/cytoscape-tutorials/protocols/importing-data-from-tables)
   - [x] with [Python](./ipynb/Python/Importing_data.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/24)
   - [x] with [R](http://cytoscape.org/cytoscape-automation/for-scripters/R/notebooks/Importing-data.nb.html) , (Already written by the mentor)
@@ -91,7 +91,7 @@ Our basic commit rule is _**Commit every tutorial slide**_.
 
 - [Saving Results](https://cytoscape.github.io/cytoscape-tutorials/protocols/saving-results)
   - [x] with [Python](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/ipynb/Python/saving_results.ipynb) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/23)
-  - [x] with [R](http://nrnb.org/gsod2019_kozo_nishida/html_documents/Rmd/saving-results.html) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/9)
+  - [x] with [R](https://github.com/nrnb/gsod2019_kozo_nishida/blob/master/Rmd/saving-results.Rmd) , [link to the commits](https://github.com/nrnb/gsod2019_kozo_nishida/issues/9)
 
 ## There is still work to be done...
 
